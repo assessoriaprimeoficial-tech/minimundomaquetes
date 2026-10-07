@@ -194,6 +194,8 @@ function Index() {
       <div className="overflow-hidden bg-orange-500 py-3 text-white"><div className="flex w-max animate-info-marquee whitespace-nowrap font-extrabold uppercase tracking-[0.14em]"><span className="mx-8">✦ Maquetes sob encomenda</span><span className="mx-8">✦ Prazo padrão de até 8 dias</span><span className="mx-8">✦ 30% de sinal para iniciar</span><span className="mx-8">✦ Modelos simples, comuns, grandes e mega</span><span className="mx-8">✦ Peça seu orçamento pelo WhatsApp</span><span className="mx-8">✦ Maquetes sob encomenda</span><span className="mx-8">✦ Prazo padrão de até 8 dias</span><span className="mx-8">✦ 30% de sinal para iniciar</span><span className="mx-8">✦ Modelos simples, comuns, grandes e mega</span><span className="mx-8">✦ Peça seu orçamento pelo WhatsApp</span></div></div>
 
 
+      </section>
+
       <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
