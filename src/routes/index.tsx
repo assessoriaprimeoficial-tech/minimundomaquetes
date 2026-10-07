@@ -1,19 +1,89 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ArrowRight, ChevronDown, Clock3, Hammer, Layers3, MessageCircle, PackageCheck, Recycle, Ruler, Sparkles, WalletCards } from "lucide-react";
+
+const WHATSAPP = "https://wa.me/5521985261185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
+const gallery = [
+  { title: "Maquetes escolares", text: "Projetos criativos para trabalhos escolares e apresentações.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85" },
+  { title: "Projetos detalhados", text: "Modelos maiores para cursos, feiras e projetos expressivos.", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85" },
+  { title: "Construção e urbanismo", text: "Representações visuais para explicar espaços e estruturas.", image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=85" },
+  { title: "Projetos especiais", text: "Soluções sob medida para ideias que precisam ganhar forma.", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85" },
+];
+const plans = [
+  { name: "Simples", size: "50 × 50 cm", audience: "Alunos de 6 a 10 anos", price: "R$ 180 a R$ 220", color: "bg-blue-600" },
+  { name: "Comum", size: "60 × 60 ou 60 × 80 cm", audience: "Alunos de 12 a 17 anos", price: "R$ 250 a R$ 280", color: "bg-orange-500" },
+  { name: "Grande", size: "aprox. 1,50 m", audience: "Alunos acima de 17 anos e cursos", price: "R$ 350 a R$ 450", color: "bg-red-500" },
+  { name: "Mega", size: "1 × 1 m", audience: "Projetos expressivos e detalhados", price: "R$ 450 a R$ 750", color: "bg-slate-900" },
+];
+const faqs = [
+  ["Qual é o prazo de fabricação?", "O prazo padrão para entrega é de até 8 dias após a confirmação do pedido."],
+  ["Quais materiais são utilizados?", "Nas maquetes escolares, utilizamos principalmente isopor 100%, papelão, plástico e PVC, priorizando materiais recicláveis. Para projetos permanentes, também trabalhamos com materiais novos."],
+  ["A maquete é uma réplica exata?", "Não. A maquete é criada ou baseada na imagem de referência e fica semelhante ao pedido, mas os elementos são simulados. Água, energia e outros itens são representados visualmente."],
+  ["Posso pedir mudanças depois que estiver pronta?", "Para evitar retrabalho, enviamos uma ideia durante a montagem. Depois de pintura e colagem não realizamos mudanças, inclusive no dia da entrega."],
+  ["Como funciona o pagamento?", "É solicitado 30% de sinal para iniciar e o restante é pago quando o cliente vier buscar. Em pedidos com prazo longo, se o projeto ficar pronto antes, o saldo deve ser pago após o envio de fotos e vídeos."],
+  ["Vocês fazem entrega?", "A retirada é feita no local de fabricação e fica sob responsabilidade do cliente, pessoalmente ou por Uber/Carga."],
+];
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Página em branco" },
-      { name: "description", content: "Página vazia, sem conteúdo." },
-      { property: "og:title", content: "Página em branco" },
-      { property: "og:description", content: "Página vazia, sem conteúdo." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-  }),
+  head: () => ({ meta: [
+    { title: "Mini Mundo Maquetes | Maquetes escolares e projetos" },
+    { name: "description", content: "Maquetes escolares, para feiras, cursos e projetos. Modelos simples, comuns, grandes e mega sob encomenda." },
+    { property: "og:title", content: "Mini Mundo Maquetes" },
+    { property: "og:description", content: "Transformamos ideias e projetos em maquetes feitas sob encomenda." },
+  ]}),
   component: Index,
 });
 
 function Index() {
-  return null;
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [slide, setSlide] = useState(0);
+  return <main className="min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/85 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+        <a href="#" className="flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-600 text-white shadow-lg"><Layers3 size={23}/></span><span><strong className="block text-lg leading-none">MINI MUNDO</strong><small className="font-bold uppercase tracking-[0.2em] text-orange-500">Maquetes</small></span></a>
+        <nav className="hidden gap-7 text-sm font-semibold md:flex"><a href="#modelos" className="hover:text-blue-600">Modelos</a><a href="#como-funciona" className="hover:text-blue-600">Como funciona</a><a href="#galeria" className="hover:text-blue-600">Galeria</a><a href="#duvidas" className="hover:text-blue-600">Dúvidas</a></nav>
+        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="rounded-full bg-blue-600 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-blue-700">Pedir orçamento</a>
+      </div>
+    </header>
+
+    <section className="relative pt-28">
+      <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"/><div className="absolute -right-24 top-28 h-96 w-96 rounded-full bg-blue-300/30 blur-3xl"/>
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-10 lg:grid-cols-[1.02fr_.98fr] lg:px-8 lg:pb-24 lg:pt-16">
+        <div className="relative z-10">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-blue-700 shadow-sm"><Sparkles size={15}/> Feitas sob encomenda</div>
+          <h1 className="max-w-3xl text-5xl font-black leading-[0.96] tracking-[-0.045em] sm:text-6xl lg:text-7xl">Sua ideia em um <span className="text-blue-600">Mini Mundo.</span></h1>
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">Fabricamos <strong className="text-slate-900">maquetes escolares, para feiras, cursos e projetos</strong>, com diferentes tamanhos e níveis de detalhe.</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row"><a href={WHATSAPP} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-6 py-4 font-extrabold text-white shadow-xl hover:bg-blue-700">Quero fazer minha maquete <ArrowRight className="transition group-hover:translate-x-1" size={19}/></a><a href="#modelos" className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-4 font-extrabold transition hover:bg-blue-50">Ver modelos e valores</a></div>
+          <div className="mt-9 grid max-w-xl grid-cols-3 gap-3">{[["8 dias","prazo padrão"],["30%","sinal inicial"],["4 níveis","de maquete"]].map(([a,b])=><div key={a} className="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm"><b className="block text-xl font-black text-blue-700">{a}</b><span className="text-xs font-semibold text-slate-500">{b}</span></div>)}</div>
+        </div>
+        <div className="relative"><div className="relative overflow-hidden rounded-[2.2rem] border-8 border-white bg-slate-100 shadow-2xl"><img src={gallery[slide].image} alt={gallery[slide].title} className="h-[430px] w-full object-cover sm:h-[520px]"/><div className="absolute inset-x-4 bottom-4 rounded-2xl bg-slate-950/80 p-5 text-white backdrop-blur-md"><span className="text-xs font-bold uppercase tracking-[0.16em] text-orange-300">Mini Mundo Maquetes</span><h2 className="mt-1 text-xl font-black">{gallery[slide].title}</h2><p className="mt-1 text-sm text-white/75">{gallery[slide].text}</p></div><div className="absolute right-5 top-5 flex gap-2">{gallery.map((_,i)=><button aria-label={"Ir para imagem "+(i+1)} key={i} onClick={()=>setSlide(i)} className={"h-2.5 rounded-full transition-all "+(slide===i?"w-8 bg-orange-400":"w-2.5 bg-white/70")}/>)}</div></div></div>
+      </div>
+    </section>
+
+    <section className="border-y border-slate-100 bg-white py-16 lg:py-20"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="max-w-2xl"><p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">Do jeito certo</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Uma maquete pensada para o seu projeto.</h2><p className="mt-4 text-slate-600">Cada pedido é produzido de acordo com a necessidade do cliente, seja para uma atividade escolar, uma feira, um curso ou uma apresentação especial.</p></div>
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{[
+        [Recycle,"Materiais recicláveis","Isopor, papelão, plástico e PVC para maquetes escolares."],[Ruler,"Tamanho sob medida","Do modelo compacto ao projeto de 1 × 1 metro."],[Hammer,"Produção artesanal","Cada peça é montada e finalizada pensando no seu projeto."],[Sparkles,"Visual detalhado","Elementos simulados para deixar a apresentação muito mais clara."]
+      ].map(([Icon,title,text])=><div key={title as string} className="group rounded-3xl border border-slate-100 bg-[#f8fbff] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl"><div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-blue-600 text-white"><Icon size={22}/></div><h3 className="font-black">{title as string}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{text as string}</p></div>)}</div>
+    </div></section>
+
+    <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Modelos e valores</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Escolha o nível da sua maquete</h2></div><p className="max-w-md text-sm leading-6 text-slate-500">Os valores são médias para maquetes escolares com material reciclável. Projetos especiais são avaliados individualmente.</p></div>
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{plans.map((p,i)=><article key={p.name} className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"><div className={"absolute inset-x-0 top-0 h-1.5 "+p.color}/><span className="text-sm font-extrabold text-slate-400">0{i+1}</span><h3 className="mt-5 text-2xl font-black">{p.name}</h3><div className="mt-5 rounded-2xl bg-slate-50 p-4"><span className="text-xs font-bold uppercase tracking-wider text-slate-400">Tamanho</span><strong className="mt-1 block text-lg">{p.size}</strong></div><p className="mt-5 min-h-12 text-sm leading-6 text-slate-500">{p.audience}</p><div className="mt-6 border-t border-slate-100 pt-5"><span className="text-xs font-bold uppercase tracking-wider text-slate-400">Média de valor</span><strong className="mt-1 block text-2xl font-black text-blue-700">{p.price}</strong></div><a href={WHATSAPP+"&text=Quero%20um%20or%C3%A7amento%20para%20uma%20maquete%20"+encodeURIComponent(p.name)+"."} target="_blank" rel="noreferrer" className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-extrabold text-white hover:bg-blue-600">Pedir orçamento <ArrowRight size={16}/></a></article>)}</div>
+      <div className="mt-6 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-sm leading-6 text-orange-950"><strong>Materiais novos ou réplicas:</strong> quando o projeto exige somente materiais novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e combinado diretamente com o cliente.</div>
+    </div></section>
+
+    <section id="como-funciona" className="scroll-mt-24 bg-slate-950 py-20 text-white lg:py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="font-extrabold uppercase tracking-[0.18em] text-orange-400">Como funciona</p><h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Do pedido à retirada, tudo explicado.</h2><p className="mt-5 leading-7 text-white/60">Para que o resultado fique alinhado com sua expectativa, seguimos um processo simples e objetivo.</p></div><div className="grid gap-4 sm:grid-cols-2">{[
+      ["01","Você envia a ideia","Conte o que precisa, envie imagens de referência e informe tamanho e finalidade."],["02","Definimos o modelo","Alinhamos o nível da maquete e o orçamento antes de começar."],["03","Produzimos","O prazo padrão é de 8 dias. Em pedidos longos, enviamos fotos e vídeos quando o trabalho estiver pronto."],["04","Você retira","A retirada é feita no local de fabricação. O transporte fica por conta do cliente."]
+    ].map(([n,t,d])=><div key={n} className="rounded-3xl border border-white/10 bg-white/[.04] p-6 hover:bg-white/[.07]"><span className="text-3xl font-black text-blue-400">{n}</span><h3 className="mt-4 font-black">{t}</h3><p className="mt-2 text-sm leading-6 text-white/55">{d}</p></div>)}</div></div>
+      <div className="mt-12 grid gap-4 rounded-[2rem] border border-white/10 bg-white/[.04] p-6 sm:grid-cols-3">{[[WalletCards,"Pagamento","30% de sinal + restante na retirada."],[Clock3,"Prazo","Até 8 dias após o pedido."],[PackageCheck,"Retirada","No local de fabricação, por conta do cliente."]].map(([Icon,t,d])=><div key={t as string} className="flex gap-4"><div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><Icon size={20}/></div><div><b className="block">{t as string}</b><span className="text-sm text-white/50">{d as string}</span></div></div>)}</div>
+    </div></section>
+
+    <section id="galeria" className="scroll-mt-24 bg-white py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div><p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">Inspiração</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Ideias que ganham forma.</h2></div><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{gallery.map((item,i)=><button key={item.title} onClick={()=>setSlide(i)} className={"group relative overflow-hidden rounded-3xl text-left "+(slide===i?"ring-4 ring-blue-100":"")}><img src={item.image} alt={item.title} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"/><div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent"/><div className="absolute inset-x-0 bottom-0 p-5 text-white"><h3 className="font-black">{item.title}</h3><p className="mt-1 text-xs text-white/70">{item.text}</p></div></button>)}</div></div></section>
+
+    <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto grid max-w-5xl gap-10 px-5 lg:grid-cols-[.75fr_1.25fr] lg:px-8"><div><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Perguntas frequentes</p><h2 className="mt-2 text-3xl font-black tracking-tight">Antes de pedir, tire suas dúvidas.</h2><p className="mt-4 text-sm leading-6 text-slate-500">Transparência é parte do nosso processo. Veja as principais informações sobre produção, pagamento e retirada.</p></div><div className="space-y-3">{faqs.map(([q,a],i)=><div key={q} className="overflow-hidden rounded-2xl border border-slate-200 bg-white"><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left font-extrabold"><span>{q}</span><ChevronDown className={"shrink-0 transition "+(openFaq===i?"rotate-180 text-blue-600":"text-slate-400")} size={19}/></button>{openFaq===i&&<div className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-6 text-slate-500">{a}</div>}</div>)}</div></div></section>
+
+    <section className="px-5 pb-24 pt-8 lg:px-8"><div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-blue-600 px-7 py-12 text-center text-white shadow-2xl sm:px-12"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-100">Vamos criar?</p><h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Mande sua ideia e peça seu orçamento.</h2><p className="mx-auto mt-5 max-w-2xl leading-7 text-blue-100">Envie uma foto, desenho ou explique o projeto. Vamos avaliar o tamanho, nível de detalhe e materiais necessários.</p><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-blue-700 shadow-lg hover:-translate-y-1">Falar pelo WhatsApp <MessageCircle size={20}/></a></div></section>
+
+    <footer className="border-t border-slate-200 bg-white py-10"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-5 text-sm text-slate-500 md:flex-row md:items-center lg:px-8"><div><strong className="text-slate-900">MINI MUNDO MAQUETES</strong><p className="mt-1">Maquetes escolares, feiras, cursos e projetos.</p></div><div className="flex items-center gap-5"><a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-bold hover:text-blue-600">WhatsApp</a><span>© 2026 Mini Mundo Maquetes</span></div></div></footer>
+    <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp" className="fixed bottom-5 right-5 z-50 grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white shadow-2xl transition hover:scale-110"><MessageCircle size={29}/></a>
+  </main>;
 }
