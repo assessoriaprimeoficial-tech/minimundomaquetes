@@ -449,10 +449,10 @@ function Index() {
         </div>
       </section>
 
-      <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-10 lg:py-14">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
+      <section id="duvidas" className="scroll-mt-24 bg-background py-10 lg:py-14">
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-5 text-center lg:px-8">
           <div>
-            <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
+            <p className="font-extrabold uppercase text-brand">
               Perguntas frequentes
             </p>
             <h2 className="mt-2 text-3xl font-black tracking-normal">
@@ -463,38 +463,43 @@ function Index() {
               produção, pagamento e retirada.
             </p>
           </div>
-          <div className="w-full space-y-3">
+          <div className="w-full border-t border-border text-left">
             {faqs.map(([q, a], i) => (
-              <div key={q} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                <button
+              <div key={q} className="border-b border-border">
+                <Button
+                  variant="ghost"
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                  id={`faq-question-${i}`}
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="flex w-full flex-col items-center justify-center gap-3 px-5 py-5 text-center font-extrabold"
+                  className="h-auto min-h-16 w-full justify-between gap-4 whitespace-normal rounded-none px-1 py-4 text-left text-lg font-semibold leading-7 text-foreground [&_svg]:size-5"
                 >
-                  <span>{q}</span>
+                  <span className="min-w-0">{q}</span>
                   <ChevronDown
                     className={
-                      "shrink-0 transition " +
-                      (openFaq === i ? "rotate-180 text-blue-600" : "text-muted-foreground")
+                      "shrink-0 transition-transform motion-reduce:transition-none " +
+                      (openFaq === i ? "rotate-180 text-brand" : "text-muted-foreground")
                     }
                     size={19}
                   />
-                </button>
-                {openFaq === i && (
-                  <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-base leading-7 text-muted-foreground">
-                    {a}
-                  </div>
-                )}
+                </Button>
+                <div
+                  id={`faq-answer-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                  hidden={openFaq !== i}
+                  className="px-1 pb-5 pr-9 text-lg leading-7 text-muted-foreground"
+                >
+                  {a}
+                </div>
               </div>
             ))}
           </div>
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noreferrer"
-            className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-orange-600"
-          >
-            Tirar dúvidas pelo WhatsApp <MessageCircle size={18} />
-          </a>
+          <Button asChild className="mt-2 h-auto max-w-full whitespace-normal bg-brand-warm px-5 py-3 text-base font-bold text-primary-foreground hover:bg-brand-warm/90">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer">
+              Tirar dúvidas pelo WhatsApp <MessageCircle size={18} />
+            </a>
+          </Button>
         </div>
       </section>
 
