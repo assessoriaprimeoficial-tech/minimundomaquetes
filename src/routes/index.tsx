@@ -112,7 +112,7 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <a href="#" aria-label="Mini Mundo Maquetes — início" className="block shrink-0">
-            <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-36 object-contain sm:w-44" />
+            <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-24 object-contain sm:w-28" />
           </a>
           <nav className="hidden gap-7 text-sm font-semibold md:flex">
             <a href="#sobre" className="hover:text-blue-600">
@@ -177,7 +177,7 @@ function Index() {
                 Ver modelos e valores
               </a>
             </div>
-            <div className="mt-9 grid max-w-xl grid-cols-3 gap-3 text-center">
+            <div className="mt-9 flex w-full max-w-xl flex-col gap-3 text-center">
               {[
                 ["8 dias", "prazo padrão"],
                 ["30%", "sinal inicial"],
@@ -221,7 +221,7 @@ function Index() {
               <article key={p.name} className="overflow-visible bg-transparent text-center">
                 <div className="block">
                   <div className="relative mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
-                    <div className={"absolute inset-x-0 top-0 h-1.5 " + p.color} />
+                    <div className={"absolute inset-x-0 top-0 h-2 rounded-t-[2rem] " + p.color} />
                     <span className="text-sm font-extrabold text-slate-400">MODELO 0{i + 1}</span>
                     <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
                     <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">
@@ -416,7 +416,7 @@ function Index() {
         </div>
       </section>
 
-      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-slate-500">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="mt-10 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-6 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-6 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-slate-400"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">Nome do cliente</span><span className="text-xs font-semibold text-slate-400">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
+      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-slate-500">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="mt-10 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-6 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-6 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-slate-400"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">{["Mariana Alves","Carlos Henrique","Fernanda Martins","Rafael Oliveira","Juliana Costa","André Souza"][i-1]}</span><span className="text-xs font-semibold text-slate-400">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
@@ -456,7 +456,7 @@ function Index() {
       </section>
 
       <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-5 text-center lg:px-8">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-5 text-center lg:px-8">
           <div>
             <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
               Perguntas frequentes
@@ -469,7 +469,7 @@ function Index() {
               produção, pagamento e retirada.
             </p>
           </div>
-          <div className="space-y-3">
+          <div className="w-full space-y-3">
             {faqs.map(([q, a], i) => (
               <div key={q} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
                 <button
@@ -525,8 +525,9 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white py-10">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-5 text-sm text-slate-500 md:flex-row md:items-center lg:px-8">
+      <footer className="border-t border-slate-200 bg-white py-12">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-7 px-5 text-center text-sm text-slate-500 lg:px-8">
+          <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-32 object-contain sm:w-36" />
           <div>
             <strong className="text-slate-900">MINI MUNDO MAQUETES</strong>
             <p className="mt-1">Maquetes escolares, feiras, cursos e projetos.</p>
