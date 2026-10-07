@@ -1,104 +1,726 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Clock3, Hammer, Layers3, MessageCircle, PackageCheck, Recycle, Ruler, Sparkles, WalletCards } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Clock3,
+  Hammer,
+  Layers3,
+  MessageCircle,
+  PackageCheck,
+  Recycle,
+  Ruler,
+  Sparkles,
+  WalletCards,
+} from "lucide-react";
 
-const WHATSAPP = "https://wa.me/5521985261185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
+const WHATSAPP =
+  "https://wa.me/5521985261185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
 const gallery = [
-  { title: "Maquetes escolares", text: "Projetos criativos para trabalhos escolares e apresentações." },
-  { title: "Projetos detalhados", text: "Modelos maiores para cursos, feiras e projetos expressivos." },
-  { title: "Construção e urbanismo", text: "Representações visuais para explicar espaços e estruturas." },
-  { title: "Projetos especiais", text: "Soluções sob medida para ideias que precisam ganhar forma." },
+  {
+    title: "Maquetes escolares",
+    text: "Projetos criativos para trabalhos escolares e apresentações.",
+  },
+  {
+    title: "Projetos detalhados",
+    text: "Modelos maiores para cursos, feiras e projetos expressivos.",
+  },
+  {
+    title: "Construção e urbanismo",
+    text: "Representações visuais para explicar espaços e estruturas.",
+  },
+  {
+    title: "Projetos especiais",
+    text: "Soluções sob medida para ideias que precisam ganhar forma.",
+  },
 ];
 const plans = [
-  { name: "Simples", size: "50 × 50 cm", audience: "Alunos de 6 a 10 anos", price: "R$ 180 a R$ 220", color: "bg-blue-600" },
-  { name: "Comum", size: "60 × 60 ou 60 × 80 cm", audience: "Alunos de 12 a 17 anos", price: "R$ 250 a R$ 280", color: "bg-orange-500" },
-  { name: "Grande", size: "aprox. 1,50 m", audience: "Alunos acima de 17 anos e cursos", price: "R$ 350 a R$ 450", color: "bg-red-500" },
-  { name: "Mega", size: "1 × 1 m", audience: "Projetos expressivos e detalhados", price: "R$ 450 a R$ 750", color: "bg-red-600" },
+  {
+    name: "Simples",
+    size: "50 × 50 cm",
+    audience: "Alunos de 6 a 10 anos",
+    price: "R$ 180 a R$ 220",
+    color: "bg-blue-600",
+  },
+  {
+    name: "Comum",
+    size: "60 × 60 ou 60 × 80 cm",
+    audience: "Alunos de 12 a 17 anos",
+    price: "R$ 250 a R$ 280",
+    color: "bg-orange-500",
+  },
+  {
+    name: "Grande",
+    size: "aprox. 1,50 m",
+    audience: "Alunos acima de 17 anos e cursos",
+    price: "R$ 350 a R$ 450",
+    color: "bg-red-500",
+  },
+  {
+    name: "Mega",
+    size: "1 × 1 m",
+    audience: "Projetos expressivos e detalhados",
+    price: "R$ 450 a R$ 750",
+    color: "bg-red-600",
+  },
 ];
 const faqs = [
-  ["Qual é o prazo de fabricação?", "O prazo padrão para entrega é de até 8 dias após a confirmação do pedido."],
-  ["Quais materiais são utilizados?", "Nas maquetes escolares, utilizamos principalmente isopor 100%, papelão, plástico e PVC, priorizando materiais recicláveis. Para projetos permanentes, também trabalhamos com materiais novos."],
-  ["A maquete é uma réplica exata?", "Não. A maquete é criada ou baseada na imagem de referência e fica semelhante ao pedido, mas os elementos são simulados. Água, energia e outros itens são representados visualmente."],
-  ["Posso pedir mudanças depois que estiver pronta?", "Para evitar retrabalho, enviamos uma ideia durante a montagem. Depois de pintura e colagem não realizamos mudanças, inclusive no dia da entrega."],
-  ["Como funciona o pagamento?", "É solicitado 30% de sinal para iniciar e o restante é pago quando o cliente vier buscar. Em pedidos com prazo longo, se o projeto ficar pronto antes, o saldo deve ser pago após o envio de fotos e vídeos."],
-  ["Vocês fazem entrega?", "A retirada é feita no local de fabricação e fica sob responsabilidade do cliente, pessoalmente ou por Uber/Carga."],
+  [
+    "Qual é o prazo de fabricação?",
+    "O prazo padrão para entrega é de até 8 dias após a confirmação do pedido.",
+  ],
+  [
+    "Quais materiais são utilizados?",
+    "Nas maquetes escolares, utilizamos principalmente isopor 100%, papelão, plástico e PVC, priorizando materiais recicláveis. Para projetos permanentes, também trabalhamos com materiais novos.",
+  ],
+  [
+    "A maquete é uma réplica exata?",
+    "Não. A maquete é criada ou baseada na imagem de referência e fica semelhante ao pedido, mas os elementos são simulados. Água, energia e outros itens são representados visualmente.",
+  ],
+  [
+    "Posso pedir mudanças depois que estiver pronta?",
+    "Para evitar retrabalho, enviamos uma ideia durante a montagem. Depois de pintura e colagem não realizamos mudanças, inclusive no dia da entrega.",
+  ],
+  [
+    "Como funciona o pagamento?",
+    "É solicitado 30% de sinal para iniciar e o restante é pago quando o cliente vier buscar. Em pedidos com prazo longo, se o projeto ficar pronto antes, o saldo deve ser pago após o envio de fotos e vídeos.",
+  ],
+  [
+    "Vocês fazem entrega?",
+    "A retirada é feita no local de fabricação e fica sob responsabilidade do cliente, pessoalmente ou por Uber/Carga.",
+  ],
 ];
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [
-    { title: "Mini Mundo Maquetes | Maquetes escolares e projetos" },
-    { name: "description", content: "Maquetes escolares, para feiras, cursos e projetos. Modelos simples, comuns, grandes e mega sob encomenda." },
-    { property: "og:title", content: "Mini Mundo Maquetes" },
-    { property: "og:description", content: "Transformamos ideias e projetos em maquetes feitas sob encomenda." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-  ]}),
+  head: () => ({
+    meta: [
+      { title: "Mini Mundo Maquetes | Maquetes escolares e projetos" },
+      {
+        name: "description",
+        content:
+          "Maquetes escolares, para feiras, cursos e projetos. Modelos simples, comuns, grandes e mega sob encomenda.",
+      },
+      { property: "og:title", content: "Mini Mundo Maquetes" },
+      {
+        property: "og:description",
+        content: "Transformamos ideias e projetos em maquetes feitas sob encomenda.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [slide, setSlide] = useState(0);
-  return <main className="min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/85 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <a href="#" className="flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-600 text-white shadow-lg"><Layers3 size={23}/></span><span><strong className="block text-lg leading-none">MINI MUNDO</strong><small className="font-bold uppercase tracking-[0.2em] text-orange-500">Maquetes</small></span></a>
-        <nav className="hidden gap-7 text-sm font-semibold md:flex"><a href="#sobre" className="hover:text-blue-600">Sobre</a><a href="#modelos" className="hover:text-blue-600">Modelos</a><a href="#como-funciona" className="hover:text-blue-600">Como funciona</a><a href="#galeria" className="hover:text-blue-600">Galeria</a><a href="#duvidas" className="hover:text-blue-600">Dúvidas</a></nav>
-        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="rounded-full bg-blue-600 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-blue-700">Pedir orçamento</a>
-      </div>
-    </header>
-
-    <section className="relative pt-28 text-center">
-      <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl"/><div className="absolute -right-24 top-28 h-96 w-96 rounded-full bg-blue-300/30 blur-3xl"/>
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-5 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-16">
-        <div className="relative z-10 flex w-full flex-col items-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-blue-700 shadow-sm"><Sparkles size={15}/> Feitas sob encomenda</div>
-          <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[0.96] tracking-[-0.045em] sm:text-6xl lg:text-7xl">Sua ideia em um <span className="text-blue-600">Mini Mundo.</span></h1>
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">Fabricamos <strong className="text-slate-900">maquetes escolares, para feiras, cursos e projetos</strong>, com diferentes tamanhos e níveis de detalhe.</p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"><a href={WHATSAPP} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-6 py-4 font-extrabold text-white shadow-xl hover:bg-blue-700">Quero fazer minha maquete <ArrowRight className="transition group-hover:translate-x-1" size={19}/></a><a href="#modelos" className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-4 font-extrabold transition hover:bg-blue-50">Ver modelos e valores</a></div>
-          <div className="mt-9 grid max-w-xl grid-cols-3 gap-3 text-center">{[["8 dias","prazo padrão"],["30%","sinal inicial"],["4 níveis","de maquete"]].map(([a,b])=><div key={a} className="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm"><b className="block text-xl font-black text-blue-700">{a}</b><span className="text-xs font-semibold text-slate-500">{b}</span></div>)}</div>
+  return (
+    <main className="min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <a href="#" className="flex items-center gap-3">
+            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-600 text-white shadow-lg">
+              <Layers3 size={23} />
+            </span>
+            <span>
+              <strong className="block text-lg leading-none">MINI MUNDO</strong>
+              <small className="font-bold uppercase tracking-[0.2em] text-orange-500">
+                Maquetes
+              </small>
+            </span>
+          </a>
+          <nav className="hidden gap-7 text-sm font-semibold md:flex">
+            <a href="#sobre" className="hover:text-blue-600">
+              Sobre
+            </a>
+            <a href="#modelos" className="hover:text-blue-600">
+              Modelos
+            </a>
+            <a href="#como-funciona" className="hover:text-blue-600">
+              Como funciona
+            </a>
+            <a href="#galeria" className="hover:text-blue-600">
+              Galeria
+            </a>
+            <a href="#duvidas" className="hover:text-blue-600">
+              Dúvidas
+            </a>
+          </nav>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full bg-blue-600 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-blue-700"
+          >
+            Pedir orçamento
+          </a>
         </div>
-        <div className="relative w-full max-w-5xl"><div className="relative overflow-hidden rounded-[2.2rem] border-8 border-white bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-2xl"><div className="m-4 flex h-[390px] items-center justify-center rounded-[1.8rem] border-2 border-dashed border-blue-200 bg-white/70 sm:h-[480px]"><div className="text-center"><div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-blue-600 text-3xl font-black text-white shadow-lg">{String(slide+1).padStart(2,"0")}</div><p className="mt-5 text-sm font-extrabold uppercase tracking-[0.16em] text-orange-500">Espaço para foto</p><h2 className="mt-2 text-2xl font-black text-slate-900">{gallery[slide]?.title}</h2><p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-slate-500">{gallery[slide]?.text}</p></div></div><div className="absolute right-5 top-5 flex gap-2">{gallery.map((_,i)=><button aria-label={"Ir para espaço "+(i+1)} key={i} onClick={()=>setSlide(i)} className={"h-2.5 rounded-full transition-all "+(slide===i?"w-8 bg-orange-400":"w-2.5 bg-blue-200")}/>)}</div></div></div>
-      </div>
-    </section>
+      </header>
 
-    <section id="sobre" className="scroll-mt-24 border-y border-slate-100 bg-white py-16 lg:py-20"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><div className="mx-auto max-w-2xl"><p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">Do jeito certo</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Uma maquete pensada para o seu projeto.</h2><p className="mt-4 text-slate-600">Cada pedido é produzido de acordo com a necessidade do cliente, seja para uma atividade escolar, uma feira, um curso ou uma apresentação especial.</p></div>
-      <div className="mx-auto mt-10 grid max-w-6xl gap-5 text-center md:grid-cols-2 lg:grid-cols-4">{([
-        [Recycle,"Materiais recicláveis","Isopor, papelão, plástico e PVC para maquetes escolares."],[Ruler,"Tamanho sob medida","Do modelo compacto ao projeto de 1 × 1 metro."],[Hammer,"Produção artesanal","Cada peça é montada e finalizada pensando no seu projeto."],[Sparkles,"Visual detalhado","Elementos simulados para deixar a apresentação muito mais clara."]
-       ] as const).map(([Icon,title,text])=><div key={title as string} className="group rounded-3xl border border-slate-100 bg-[#f8fbff] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl"><div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-blue-600 text-white"><Icon size={22}/></div><h3 className="font-black">{title as string}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{text as string}</p></div>)}</div>
-    </div></section>
-
-    <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Modelos e valores</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Escolha o nível da sua maquete</h2></div><p className="max-w-md text-sm leading-6 text-slate-500">Confira o tamanho, indicação e média de valor de cada modelo. Abaixo de cada categoria, deixamos um carrossel preparado para mostrar as maquetes reais daquele tipo.</p></div>
-      <div className="mt-10 space-y-12">{plans.map((p,i)=><article key={p.name} className="overflow-visible bg-transparent text-center">
-        <div className="block">
-          <div className="relative mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9"><div className={"absolute inset-x-0 top-0 h-1.5 "+p.color}/><span className="text-sm font-extrabold text-slate-400">MODELO 0{i+1}</span><h3 className="mt-4 text-3xl font-black">{p.name}</h3><p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">{i===0?"Ideal para trabalhos escolares mais simples, especialmente para crianças e alunos que precisam apresentar uma ideia de forma objetiva e criativa.":i===1?"Uma opção mais completa para trabalhos escolares e apresentações que precisam de mais espaço e elementos na composição.":i===2?"Modelo maior e mais expressivo, indicado para alunos acima de 17 anos, cursos e projetos que precisam de presença visual.":"Modelo de maior impacto, pensado para projetos expressivos e detalhados, como usinas, construções, mar, navios, plataformas e outros trabalhos especiais."}</p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2"><div className="rounded-2xl bg-slate-50 p-4"><span className="text-xs font-bold uppercase tracking-wider text-slate-400">Tamanho</span><strong className="mt-1 block text-lg">{p.size}</strong></div><div className="rounded-2xl bg-slate-50 p-4"><span className="text-xs font-bold uppercase tracking-wider text-slate-400">Indicado para</span><strong className="mt-1 block text-sm leading-5">{p.audience}</strong></div></div>
-            <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-4"><span className="text-xs font-bold uppercase tracking-wider text-blue-500">Média de valor</span><strong className="mt-1 block text-2xl font-black text-blue-700">{p.price}</strong><p className="mt-1 text-xs text-blue-700/70">O valor final pode variar conforme detalhes, materiais e exigências do projeto.</p></div>
-            <a href={WHATSAPP+"&text=Quero%20um%20or%C3%A7amento%20para%20uma%20maquete%20"+encodeURIComponent(p.name)+"."} target="_blank" rel="noreferrer" className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-extrabold text-white hover:bg-blue-600">Pedir orçamento para este modelo <ArrowRight size={16}/></a>
+      <section className="relative pt-28 text-center">
+        <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
+        <div className="absolute -right-24 top-28 h-96 w-96 rounded-full bg-blue-300/30 blur-3xl" />
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-5 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-16">
+          <div className="relative z-10 flex w-full flex-col items-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-blue-700 shadow-sm">
+              <Sparkles size={15} /> Feitas sob encomenda
+            </div>
+            <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[0.96] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+              Sua ideia em um <span className="text-blue-600">Mini Mundo.</span>
+            </h1>
+            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
+              Fabricamos{" "}
+              <strong className="text-slate-900">
+                maquetes escolares, para feiras, cursos e projetos
+              </strong>
+              , com diferentes tamanhos e níveis de detalhe.
+            </p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-600 px-6 py-4 font-extrabold text-white shadow-xl hover:bg-blue-700"
+              >
+                Quero fazer minha maquete{" "}
+                <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+              </a>
+              <a
+                href="#modelos"
+                className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-4 font-extrabold transition hover:bg-blue-50"
+              >
+                Ver modelos e valores
+              </a>
+            </div>
+            <div className="mt-9 grid max-w-xl grid-cols-3 gap-3 text-center">
+              {[
+                ["8 dias", "prazo padrão"],
+                ["30%", "sinal inicial"],
+                ["4 níveis", "de maquete"],
+              ].map(([a, b]) => (
+                <div
+                  key={a}
+                  className="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm"
+                >
+                  <b className="block text-xl font-black text-blue-700">{a}</b>
+                  <span className="text-xs font-semibold text-slate-500">{b}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eef7ff] px-5 py-10 text-center sm:px-7"><div className="mx-auto mb-5 flex max-w-6xl items-center justify-center gap-4"><div><span className="text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">Fotos do modelo</span><h4 className="mt-1 font-black text-slate-900">Exemplos de {p.name.toLowerCase()}</h4></div><span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-400 shadow-sm">Carrossel</span></div>
-            <div className="overflow-hidden"><div className="flex w-max gap-4 animate-maquette-marquee">{[1,2,3,1,2,3].map((n,index)=><div key={index} className="min-w-[78vw] shrink-0 px-2 sm:min-w-[360px]"><div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 bg-white shadow-sm"><div className="text-center"><div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">{n}</div><p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">Espaço para foto</p><p className="mt-1 text-sm font-bold text-slate-700">Maquete {p.name.toLowerCase()}</p></div></div></div>)}</div></div><p className="mt-4 text-xs font-semibold text-slate-400">As imagens passam automaticamente • espaço preparado para as fotos reais deste modelo.</p>
+          <div className="relative w-full max-w-5xl">
+            <div className="relative overflow-hidden rounded-[2.2rem] border-8 border-white bg-gradient-to-br from-blue-50 via-white to-orange-50 shadow-2xl">
+              <div className="m-4 flex h-[390px] items-center justify-center rounded-[1.8rem] border-2 border-dashed border-blue-200 bg-white/70 sm:h-[480px]">
+                <div className="text-center">
+                  <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-blue-600 text-3xl font-black text-white shadow-lg">
+                    {String(slide + 1).padStart(2, "0")}
+                  </div>
+                  <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.16em] text-orange-500">
+                    Espaço para foto
+                  </p>
+                  <h2 className="mt-2 text-2xl font-black text-slate-900">
+                    {gallery[slide]?.title}
+                  </h2>
+                  <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-slate-500">
+                    {gallery[slide]?.text}
+                  </p>
+                </div>
+              </div>
+              <div className="absolute right-5 top-5 flex gap-2">
+                {gallery.map((_, i) => (
+                  <button
+                    aria-label={"Ir para espaço " + (i + 1)}
+                    key={i}
+                    onClick={() => setSlide(i)}
+                    className={
+                      "h-2.5 rounded-full transition-all " +
+                      (slide === i ? "w-8 bg-orange-400" : "w-2.5 bg-blue-200")
+                    }
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </article>)}</div>
-      <div className="mt-6 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-sm leading-6 text-orange-950"><strong>Materiais novos ou réplicas:</strong> quando o projeto exige somente materiais novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e combinado diretamente com o cliente.</div>
-    </div></section>
+      </section>
 
-    <section id="como-funciona" className="scroll-mt-24 bg-slate-950 py-20 text-white lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="font-extrabold uppercase tracking-[0.18em] text-orange-400">Como funciona</p><h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Do pedido à retirada, tudo explicado.</h2><p className="mt-5 leading-7 text-white/60">Para que o resultado fique alinhado com sua expectativa, seguimos um processo simples e objetivo.</p></div><div className="grid gap-4 sm:grid-cols-2">{[
-      ["01","Você envia a ideia","Conte o que precisa, envie imagens de referência e informe tamanho e finalidade."],["02","Definimos o modelo","Alinhamos o nível da maquete e o orçamento antes de começar."],["03","Produzimos","O prazo padrão é de 8 dias. Em pedidos longos, enviamos fotos e vídeos quando o trabalho estiver pronto."],["04","Você retira","A retirada é feita no local de fabricação. O transporte fica por conta do cliente."]
-    ].map(([n,t,d])=><div key={n} className="rounded-3xl border border-white/10 bg-white/[.04] p-6 hover:bg-white/[.07]"><span className="text-3xl font-black text-blue-400">{n}</span><h3 className="mt-4 font-black">{t}</h3><p className="mt-2 text-sm leading-6 text-white/55">{d}</p></div>)}</div></div>
-      <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-orange-600">Falar sobre meu projeto <MessageCircle size={17}/></a><div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-sm text-white/80"><div className="flex flex-wrap items-center justify-between gap-3"><span><strong className="text-white">Pagamento via Pix</strong><br/><span className="text-white/60">Chave: 21 985261185 — Adilson Simões do Nascimento</span></span><a href={WHATSAPP} target="_blank" rel="noreferrer" className="rounded-xl bg-white px-4 py-2 font-extrabold text-blue-700">Enviar comprovante</a></div></div><div className="mt-12 grid gap-4 rounded-[2rem] border border-white/10 bg-white/[.04] p-6 sm:grid-cols-3">{([[WalletCards,"Pagamento","30% de sinal + restante na retirada."],[Clock3,"Prazo","Até 8 dias após o pedido."],[PackageCheck,"Retirada","No local de fabricação, por conta do cliente."]] as const).map(([Icon,t,d])=><div key={t as string} className="flex gap-4"><div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><Icon size={20}/></div><div><b className="block">{t as string}</b><span className="text-sm text-white/50">{d as string}</span></div></div>)}</div>
-    </div></section>
+      <section
+        id="sobre"
+        className="scroll-mt-24 border-y border-slate-100 bg-white py-16 lg:py-20"
+      >
+        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+          <div className="mx-auto max-w-2xl">
+            <p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">
+              Do jeito certo
+            </p>
+            <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
+              Uma maquete pensada para o seu projeto.
+            </h2>
+            <p className="mt-4 text-slate-600">
+              Cada pedido é produzido de acordo com a necessidade do cliente, seja para uma
+              atividade escolar, uma feira, um curso ou uma apresentação especial.
+            </p>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-6xl gap-5 text-center md:grid-cols-2 lg:grid-cols-4">
+            {(
+              [
+                [
+                  Recycle,
+                  "Materiais recicláveis",
+                  "Isopor, papelão, plástico e PVC para maquetes escolares.",
+                ],
+                [Ruler, "Tamanho sob medida", "Do modelo compacto ao projeto de 1 × 1 metro."],
+                [
+                  Hammer,
+                  "Produção artesanal",
+                  "Cada peça é montada e finalizada pensando no seu projeto.",
+                ],
+                [
+                  Sparkles,
+                  "Visual detalhado",
+                  "Elementos simulados para deixar a apresentação muito mais clara.",
+                ],
+              ] as const
+            ).map(([Icon, title, text]) => (
+              <div
+                key={title as string}
+                className="group rounded-3xl border border-slate-100 bg-[#f8fbff] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-blue-600 text-white">
+                  <Icon size={22} />
+                </div>
+                <h3 className="font-black">{title as string}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500">{text as string}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <section id="galeria" className="scroll-mt-24 bg-white py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><div><p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">Inspiração</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Ideias que ganham forma.</h2></div><div className="relative mt-10"><button onClick={()=>setSlide((slide+gallery.length-1)%gallery.length)} aria-label="Imagem anterior" className="absolute -left-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white shadow-xl ring-1 ring-slate-200 sm:grid"><ChevronLeft size={20}/></button><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">{gallery.map((item,i)=><button key={item.title} onClick={()=>setSlide(i)} className={"group relative overflow-hidden rounded-3xl border-2 border-dashed bg-gradient-to-br from-blue-50 via-white to-orange-50 p-4 text-left transition "+(slide===i?"border-blue-500 ring-4 ring-blue-100":"border-slate-200 hover:border-blue-300")}><div className="flex h-56 items-center justify-center rounded-2xl border border-dashed border-blue-200 bg-white/70"><div className="text-center"><div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">{String(i+1).padStart(2,"0")}</div><p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">Espaço para foto</p><h3 className="mt-1 font-black text-slate-900">{item.title}</h3><p className="mt-1 text-xs leading-5 text-slate-500">{item.text}</p></div></div></button>)}</div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero enviar minha ideia <MessageCircle size={18}/></a><button onClick={()=>setSlide((slide+1)%gallery.length)} aria-label="Próxima imagem" className="absolute -right-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white shadow-xl ring-1 ring-slate-200 sm:grid"><ChevronRight size={20}/></button></div></div></section>
+      <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
+                Modelos e valores
+              </p>
+              <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
+                Escolha o nível da sua maquete
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-slate-500">
+              Confira o tamanho, indicação e média de valor de cada modelo. Abaixo de cada
+              categoria, deixamos um carrossel preparado para mostrar as maquetes reais daquele
+              tipo.
+            </p>
+          </div>
+          <div className="mt-10 space-y-12">
+            {plans.map((p, i) => (
+              <article key={p.name} className="overflow-visible bg-transparent text-center">
+                <div className="block">
+                  <div className="relative mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
+                    <div className={"absolute inset-x-0 top-0 h-1.5 " + p.color} />
+                    <span className="text-sm font-extrabold text-slate-400">MODELO 0{i + 1}</span>
+                    <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
+                    <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">
+                      {i === 0
+                        ? "Ideal para trabalhos escolares mais simples, especialmente para crianças e alunos que precisam apresentar uma ideia de forma objetiva e criativa."
+                        : i === 1
+                          ? "Uma opção mais completa para trabalhos escolares e apresentações que precisam de mais espaço e elementos na composição."
+                          : i === 2
+                            ? "Modelo maior e mais expressivo, indicado para alunos acima de 17 anos, cursos e projetos que precisam de presença visual."
+                            : "Modelo de maior impacto, pensado para projetos expressivos e detalhados, como usinas, construções, mar, navios, plataformas e outros trabalhos especiais."}
+                    </p>
+                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                      <div className="rounded-2xl bg-slate-50 p-4">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                          Tamanho
+                        </span>
+                        <strong className="mt-1 block text-lg">{p.size}</strong>
+                      </div>
+                      <div className="rounded-2xl bg-slate-50 p-4">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                          Indicado para
+                        </span>
+                        <strong className="mt-1 block text-sm leading-5">{p.audience}</strong>
+                      </div>
+                    </div>
+                    <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-4">
+                      <span className="text-xs font-bold uppercase tracking-wider text-blue-500">
+                        Média de valor
+                      </span>
+                      <strong className="mt-1 block text-2xl font-black text-blue-700">
+                        {p.price}
+                      </strong>
+                      <p className="mt-1 text-xs text-blue-700/70">
+                        O valor final pode variar conforme detalhes, materiais e exigências do
+                        projeto.
+                      </p>
+                    </div>
+                    <a
+                      href={
+                        WHATSAPP +
+                        "&text=Quero%20um%20or%C3%A7amento%20para%20uma%20maquete%20" +
+                        encodeURIComponent(p.name) +
+                        "."
+                      }
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-extrabold text-white hover:bg-blue-600"
+                    >
+                      Pedir orçamento para este modelo <ArrowRight size={16} />
+                    </a>
+                  </div>
+                  <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eef7ff] px-5 py-10 text-center sm:px-7">
+                    <div className="mx-auto mb-5 flex max-w-6xl items-center justify-center gap-4">
+                      <div>
+                        <span className="text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">
+                          Fotos do modelo
+                        </span>
+                        <h4 className="mt-1 font-black text-slate-900">
+                          Exemplos de {p.name.toLowerCase()}
+                        </h4>
+                      </div>
+                      <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-400 shadow-sm">
+                        Carrossel
+                      </span>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className="flex w-max gap-4 animate-maquette-marquee">
+                        {[1, 2, 3, 1, 2, 3].map((n, index) => (
+                          <div key={index} className="min-w-[78vw] shrink-0 px-2 sm:min-w-[360px]">
+                            <div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 bg-white shadow-sm">
+                              <div className="text-center">
+                                <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
+                                  {n}
+                                </div>
+                                <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">
+                                  Espaço para foto
+                                </p>
+                                <p className="mt-1 text-sm font-bold text-slate-700">
+                                  Maquete {p.name.toLowerCase()}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="mt-4 text-xs font-semibold text-slate-400">
+                      As imagens passam automaticamente • espaço preparado para as fotos reais deste
+                      modelo.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-sm leading-6 text-orange-950">
+            <strong>Materiais novos ou réplicas:</strong> quando o projeto exige somente materiais
+            novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e
+            combinado diretamente com o cliente.
+          </div>
+        </div>
+      </section>
 
-    <section className="bg-white py-20"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><div className="grid gap-6 lg:grid-cols-3"><div className="rounded-3xl bg-blue-600 p-7 text-white"><span className="text-sm font-bold text-blue-100">Para quem é</span><h3 className="mt-2 text-2xl font-black">Escolas, alunos e cursos</h3><p className="mt-3 text-sm leading-6 text-blue-100">Do trabalho escolar ao projeto acadêmico que precisa chamar atenção na apresentação.</p></div><div className="rounded-3xl bg-orange-500 p-7 text-white"><span className="text-sm font-bold text-orange-100">Para apresentar</span><h3 className="mt-2 text-2xl font-black">Feiras e projetos</h3><p className="mt-3 text-sm leading-6 text-orange-100">Modelos maiores para explicar estruturas, ambientes e ideias de forma visual.</p></div><div className="rounded-3xl bg-slate-950 p-7 text-white"><span className="text-sm font-bold text-slate-400">Projeto especial</span><h3 className="mt-2 text-2xl font-black">Materiais novos</h3><p className="mt-3 text-sm leading-6 text-slate-400">Para maquetes permanentes, réplicas e exigências específicas, o orçamento é personalizado.</p></div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-orange-600">Falar sobre meu projeto <MessageCircle size={18}/></a></div></section>
+      <section id="como-funciona" className="scroll-mt-24 bg-slate-950 py-20 text-white lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+            <div>
+              <p className="font-extrabold uppercase tracking-[0.18em] text-orange-400">
+                Como funciona
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+                Do pedido à retirada, tudo explicado.
+              </h2>
+              <p className="mt-5 leading-7 text-white/60">
+                Para que o resultado fique alinhado com sua expectativa, seguimos um processo
+                simples e objetivo.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                [
+                  "01",
+                  "Você envia a ideia",
+                  "Conte o que precisa, envie imagens de referência e informe tamanho e finalidade.",
+                ],
+                [
+                  "02",
+                  "Definimos o modelo",
+                  "Alinhamos o nível da maquete e o orçamento antes de começar.",
+                ],
+                [
+                  "03",
+                  "Produzimos",
+                  "O prazo padrão é de 8 dias. Em pedidos longos, enviamos fotos e vídeos quando o trabalho estiver pronto.",
+                ],
+                [
+                  "04",
+                  "Você retira",
+                  "A retirada é feita no local de fabricação. O transporte fica por conta do cliente.",
+                ],
+              ].map(([n, t, d]) => (
+                <div
+                  key={n}
+                  className="rounded-3xl border border-white/10 bg-white/[.04] p-6 hover:bg-white/[.07]"
+                >
+                  <span className="text-3xl font-black text-blue-400">{n}</span>
+                  <h3 className="mt-4 font-black">{t}</h3>
+                  <p className="mt-2 text-sm leading-6 text-white/55">{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-orange-600"
+          >
+            Falar sobre meu projeto <MessageCircle size={17} />
+          </a>
+          <div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-sm text-white/80">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <span>
+                <strong className="text-white">Pagamento via Pix</strong>
+                <br />
+                <span className="text-white/60">
+                  Chave: 21 985261185 — Adilson Simões do Nascimento
+                </span>
+              </span>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl bg-white px-4 py-2 font-extrabold text-blue-700"
+              >
+                Enviar comprovante
+              </a>
+            </div>
+          </div>
+          <div className="mt-12 grid gap-4 rounded-[2rem] border border-white/10 bg-white/[.04] p-6 sm:grid-cols-3">
+            {(
+              [
+                [WalletCards, "Pagamento", "30% de sinal + restante na retirada."],
+                [Clock3, "Prazo", "Até 8 dias após o pedido."],
+                [PackageCheck, "Retirada", "No local de fabricação, por conta do cliente."],
+              ] as const
+            ).map(([Icon, t, d]) => (
+              <div key={t as string} className="flex gap-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-500/15 text-blue-300">
+                  <Icon size={20} />
+                </div>
+                <div>
+                  <b className="block">{t as string}</b>
+                  <span className="text-sm text-white/50">{d as string}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto grid max-w-5xl gap-10 px-5 text-center lg:grid-cols-[.75fr_1.25fr] lg:px-8"><div><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Perguntas frequentes</p><h2 className="mt-2 text-3xl font-black tracking-tight">Antes de pedir, tire suas dúvidas.</h2><p className="mt-4 text-sm leading-6 text-slate-500">Transparência é parte do nosso processo. Veja as principais informações sobre produção, pagamento e retirada.</p></div><div className="space-y-3">{faqs.map(([q,a],i)=><div key={q} className="overflow-hidden rounded-2xl border border-slate-200 bg-white"><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left font-extrabold"><span>{q}</span><ChevronDown className={"shrink-0 transition "+(openFaq===i?"rotate-180 text-blue-600":"text-slate-400")} size={19}/></button>{openFaq===i&&<div className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-6 text-slate-500">{a}</div>}</div>)}</div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-orange-600">Tirar dúvidas pelo WhatsApp <MessageCircle size={18}/></a></div></section>
+      <section id="galeria" className="scroll-mt-24 bg-white py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+          <div>
+            <p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">Inspiração</p>
+            <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
+              Ideias que ganham forma.
+            </h2>
+          </div>
+          <div className="relative mt-10">
+            <button
+              onClick={() => setSlide((slide + gallery.length - 1) % gallery.length)}
+              aria-label="Imagem anterior"
+              className="absolute -left-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white shadow-xl ring-1 ring-slate-200 sm:grid"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {gallery.map((item, i) => (
+                <button
+                  key={item.title}
+                  onClick={() => setSlide(i)}
+                  className={
+                    "group relative overflow-hidden rounded-3xl border-2 border-dashed bg-gradient-to-br from-blue-50 via-white to-orange-50 p-4 text-left transition " +
+                    (slide === i
+                      ? "border-blue-500 ring-4 ring-blue-100"
+                      : "border-slate-200 hover:border-blue-300")
+                  }
+                >
+                  <div className="flex h-56 items-center justify-center rounded-2xl border border-dashed border-blue-200 bg-white/70">
+                    <div className="text-center">
+                      <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">
+                        Espaço para foto
+                      </p>
+                      <h3 className="mt-1 font-black text-slate-900">{item.title}</h3>
+                      <p className="mt-1 text-xs leading-5 text-slate-500">{item.text}</p>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700"
+            >
+              Quero enviar minha ideia <MessageCircle size={18} />
+            </a>
+            <button
+              onClick={() => setSlide((slide + 1) % gallery.length)}
+              aria-label="Próxima imagem"
+              className="absolute -right-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white shadow-xl ring-1 ring-slate-200 sm:grid"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+      </section>
 
-    <section className="px-5 pb-24 pt-8 lg:px-8"><div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-blue-600 px-7 py-12 text-center text-white shadow-2xl sm:px-12"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-100">Vamos criar?</p><h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Mande sua ideia e peça seu orçamento.</h2><p className="mx-auto mt-5 max-w-2xl leading-7 text-blue-100">Envie uma foto, desenho ou explique o projeto. Vamos avaliar o tamanho, nível de detalhe e materiais necessários.</p><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-blue-700 shadow-lg hover:-translate-y-1">Falar pelo WhatsApp <MessageCircle size={20}/></a></div></section>
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="rounded-3xl bg-blue-600 p-7 text-white">
+              <span className="text-sm font-bold text-blue-100">Para quem é</span>
+              <h3 className="mt-2 text-2xl font-black">Escolas, alunos e cursos</h3>
+              <p className="mt-3 text-sm leading-6 text-blue-100">
+                Do trabalho escolar ao projeto acadêmico que precisa chamar atenção na apresentação.
+              </p>
+            </div>
+            <div className="rounded-3xl bg-orange-500 p-7 text-white">
+              <span className="text-sm font-bold text-orange-100">Para apresentar</span>
+              <h3 className="mt-2 text-2xl font-black">Feiras e projetos</h3>
+              <p className="mt-3 text-sm leading-6 text-orange-100">
+                Modelos maiores para explicar estruturas, ambientes e ideias de forma visual.
+              </p>
+            </div>
+            <div className="rounded-3xl bg-slate-950 p-7 text-white">
+              <span className="text-sm font-bold text-slate-400">Projeto especial</span>
+              <h3 className="mt-2 text-2xl font-black">Materiais novos</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-400">
+                Para maquetes permanentes, réplicas e exigências específicas, o orçamento é
+                personalizado.
+              </p>
+            </div>
+          </div>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-orange-600"
+          >
+            Falar sobre meu projeto <MessageCircle size={18} />
+          </a>
+        </div>
+      </section>
 
-    <footer className="border-t border-slate-200 bg-white py-10"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-5 text-sm text-slate-500 md:flex-row md:items-center lg:px-8"><div><strong className="text-slate-900">MINI MUNDO MAQUETES</strong><p className="mt-1">Maquetes escolares, feiras, cursos e projetos.</p></div><div className="flex items-center gap-5"><a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-bold hover:text-blue-600">WhatsApp</a><span>© 2026 Mini Mundo Maquetes</span></div></div></footer>
-    <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp" className="fixed bottom-5 right-5 z-50 grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white shadow-2xl transition hover:scale-110"><MessageCircle size={29}/></a>
-  </main>;
+      <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
+        <div className="mx-auto grid max-w-5xl gap-10 px-5 text-center lg:grid-cols-[.75fr_1.25fr] lg:px-8">
+          <div>
+            <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
+              Perguntas frequentes
+            </p>
+            <h2 className="mt-2 text-3xl font-black tracking-tight">
+              Antes de pedir, tire suas dúvidas.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-slate-500">
+              Transparência é parte do nosso processo. Veja as principais informações sobre
+              produção, pagamento e retirada.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {faqs.map(([q, a], i) => (
+              <div key={q} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left font-extrabold"
+                >
+                  <span>{q}</span>
+                  <ChevronDown
+                    className={
+                      "shrink-0 transition " +
+                      (openFaq === i ? "rotate-180 text-blue-600" : "text-slate-400")
+                    }
+                    size={19}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-6 text-slate-500">
+                    {a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-orange-600"
+          >
+            Tirar dúvidas pelo WhatsApp <MessageCircle size={18} />
+          </a>
+        </div>
+      </section>
+
+      <section className="px-5 pb-24 pt-8 lg:px-8">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-blue-600 px-7 py-12 text-center text-white shadow-2xl sm:px-12">
+          <p className="font-extrabold uppercase tracking-[0.18em] text-blue-100">Vamos criar?</p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            Mande sua ideia e peça seu orçamento.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl leading-7 text-blue-100">
+            Envie uma foto, desenho ou explique o projeto. Vamos avaliar o tamanho, nível de detalhe
+            e materiais necessários.
+          </p>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-blue-700 shadow-lg hover:-translate-y-1"
+          >
+            Falar pelo WhatsApp <MessageCircle size={20} />
+          </a>
+        </div>
+      </section>
+
+      <footer className="border-t border-slate-200 bg-white py-10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-5 text-sm text-slate-500 md:flex-row md:items-center lg:px-8">
+          <div>
+            <strong className="text-slate-900">MINI MUNDO MAQUETES</strong>
+            <p className="mt-1">Maquetes escolares, feiras, cursos e projetos.</p>
+          </div>
+          <div className="flex items-center gap-5">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="font-bold hover:text-blue-600"
+            >
+              WhatsApp
+            </a>
+            <span>© 2026 Mini Mundo Maquetes</span>
+          </div>
+        </div>
+      </footer>
+      <a
+        href={WHATSAPP}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Falar no WhatsApp"
+        className="fixed bottom-5 right-5 z-50 grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white shadow-2xl transition hover:scale-110"
+      >
+        <MessageCircle size={29} />
+      </a>
+    </main>
+  );
 }
