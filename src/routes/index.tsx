@@ -12,6 +12,7 @@ import {
   Ruler,
   Sparkles,
   WalletCards,
+  UserRound,
 } from "lucide-react";
 
 const WHATSAPP =
@@ -198,7 +199,7 @@ function Index() {
 
       <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div className="flex flex-col items-center gap-5 text-center">
             <div>
               <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
                 Modelos e valores
@@ -230,7 +231,7 @@ function Index() {
                             ? "Modelo maior e mais expressivo, indicado para alunos acima de 17 anos, cursos e projetos que precisam de presença visual."
                             : "Modelo de maior impacto, pensado para projetos expressivos e detalhados, como usinas, construções, mar, navios, plataformas e outros trabalhos especiais."}
                     </p>
-                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    <div className="mt-6 flex flex-col gap-3">
                       <div className="rounded-2xl bg-slate-50 p-4">
                         <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                           Tamanho
@@ -265,7 +266,7 @@ function Index() {
                       }
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-extrabold text-white hover:bg-blue-600"
+                      className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-extrabold text-white shadow-md hover:bg-blue-700"
                     >
                       Pedir orçamento para este modelo <ArrowRight size={16} />
                     </a>
@@ -315,9 +316,9 @@ function Index() {
         </div>
       </section>
 
-      <section id="como-funciona" className="scroll-mt-24 bg-slate-950 py-20 text-white lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+      <section id="como-funciona" className="scroll-mt-24 bg-[#fff8ee] py-20 text-slate-900 lg:py-24">
+        <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
+          <div className="flex flex-col items-center gap-10">
             <div>
               <p className="font-extrabold uppercase tracking-[0.18em] text-orange-400">
                 Como funciona
@@ -330,7 +331,7 @@ function Index() {
                 simples e objetivo.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="flex w-full flex-col gap-4">
               {[
                 [
                   "01",
@@ -355,11 +356,11 @@ function Index() {
               ].map(([n, t, d]) => (
                 <div
                   key={n}
-                  className="rounded-3xl border border-white/10 bg-white/[.04] p-6 hover:bg-white/[.07]"
+                  className="rounded-3xl border border-orange-100 bg-white p-7 text-center shadow-sm hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <span className="text-3xl font-black text-blue-400">{n}</span>
+                  <span className="text-3xl font-black text-blue-600">{n}</span>
                   <h3 className="mt-4 font-black">{t}</h3>
-                  <p className="mt-2 text-sm leading-6 text-white/55">{d}</p>
+                  <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-slate-600">{d}</p>
                 </div>
               ))}
             </div>
@@ -373,7 +374,7 @@ function Index() {
             Falar sobre meu projeto <MessageCircle size={17} />
           </a>
           <div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-sm text-white/80">
-            <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-col items-center gap-4 text-center">
               <span>
                 <strong className="text-white">Pagamento via Pix</strong>
                 <br />
@@ -385,13 +386,13 @@ function Index() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-xl bg-white px-4 py-2 font-extrabold text-blue-700"
+                className="rounded-xl bg-blue-600 px-4 py-2 font-extrabold text-white shadow-md hover:bg-blue-700"
               >
                 Enviar comprovante
               </a>
             </div>
           </div>
-          <div className="mt-12 grid gap-4 rounded-[2rem] border border-white/10 bg-white/[.04] p-6 sm:grid-cols-3">
+          <div className="mt-12 flex flex-col gap-4 rounded-[2rem] border border-orange-100 bg-white p-6 shadow-sm">
             {(
               [
                 [WalletCards, "Pagamento", "30% de sinal + restante na retirada."],
@@ -399,13 +400,13 @@ function Index() {
                 [PackageCheck, "Retirada", "No local de fabricação, por conta do cliente."],
               ] as const
             ).map(([Icon, t, d]) => (
-              <div key={t as string} className="flex gap-4">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-500/15 text-blue-300">
+              <div key={t as string} className="flex flex-col items-center gap-3 text-center">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-blue-100 text-blue-600">
                   <Icon size={20} />
                 </div>
                 <div>
                   <b className="block">{t as string}</b>
-                  <span className="text-sm text-white/50">{d as string}</span>
+                  <span className="mx-auto block max-w-xl text-sm text-slate-500">{d as string}</span>
                 </div>
               </div>
             ))}
@@ -413,29 +414,29 @@ function Index() {
         </div>
       </section>
 
-      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-slate-500">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="mt-10 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-xl tracking-[0.2em] text-orange-500">★★★★★</div><p className="mt-5 text-base font-semibold leading-7 text-slate-700">“Espaço para avaliação real do cliente.”</p><span className="mt-5 block text-sm font-extrabold text-blue-600">Cliente Mini Mundo</span></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
+      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-slate-500">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="mt-10 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-6 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-6 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-slate-400"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">Nome do cliente</span><span className="text-xs font-semibold text-slate-400">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-3xl border-2 border-blue-100 bg-blue-50 p-7 text-blue-950 shadow-sm">
-              <span className="text-sm font-bold text-blue-100">Para quem é</span>
+              <span className="text-sm font-extrabold text-blue-700">Para quem é</span>
               <h3 className="mt-2 text-2xl font-black">Escolas, alunos e cursos</h3>
-              <p className="mt-3 text-sm leading-6 text-blue-100">
+              <p className="mt-3 text-sm leading-6 text-blue-800">
                 Do trabalho escolar ao projeto acadêmico que precisa chamar atenção na apresentação.
               </p>
             </div>
             <div className="rounded-3xl border-2 border-orange-100 bg-orange-50 p-7 text-orange-950 shadow-sm">
-              <span className="text-sm font-bold text-orange-100">Para apresentar</span>
+              <span className="text-sm font-extrabold text-orange-700">Para apresentar</span>
               <h3 className="mt-2 text-2xl font-black">Feiras e projetos</h3>
-              <p className="mt-3 text-sm leading-6 text-orange-100">
+              <p className="mt-3 text-sm leading-6 text-orange-800">
                 Modelos maiores para explicar estruturas, ambientes e ideias de forma visual.
               </p>
             </div>
             <div className="rounded-3xl border-2 border-red-100 bg-red-50 p-7 text-red-950 shadow-sm">
-              <span className="text-sm font-bold text-slate-400">Projeto especial</span>
+              <span className="text-sm font-extrabold text-red-700">Projeto especial</span>
               <h3 className="mt-2 text-2xl font-black">Materiais novos</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-400">
+              <p className="mt-3 text-sm leading-6 text-red-800">
                 Para maquetes permanentes, réplicas e exigências específicas, o orçamento é
                 personalizado.
               </p>
@@ -453,7 +454,7 @@ function Index() {
       </section>
 
       <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
-        <div className="mx-auto grid max-w-5xl gap-10 px-5 text-center lg:grid-cols-[.75fr_1.25fr] lg:px-8">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 px-5 text-center lg:px-8">
           <div>
             <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
               Perguntas frequentes
@@ -471,7 +472,7 @@ function Index() {
               <div key={q} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left font-extrabold"
+                  className="flex w-full flex-col items-center justify-center gap-3 px-5 py-5 text-center font-extrabold"
                 >
                   <span>{q}</span>
                   <ChevronDown
@@ -483,7 +484,7 @@ function Index() {
                   />
                 </button>
                 {openFaq === i && (
-                  <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-6 text-slate-500">
+                  <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-6 text-slate-600">
                     {a}
                   </div>
                 )}
