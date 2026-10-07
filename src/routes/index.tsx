@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import logoAsset from "@/assets/logo.png.asset.json";
+import shareLogoAsset from "@/assets/share-logo.jpg.asset.json";
+import whatsappAsset from "@/assets/whatsapp.png.asset.json";
 import {
   ArrowRight,
   ChevronDown,
@@ -89,8 +92,15 @@ export const Route = createFileRoute("/")({
         content: "Transformamos ideias e projetos em maquetes feitas sob encomenda.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://minimundomaquetes.lovable.app/" },
+      { property: "og:image", content: new URL(shareLogoAsset.url, "https://minimundomaquetes.lovable.app").href },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Logomarca Mini Mundo Maquete" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: new URL(shareLogoAsset.url, "https://minimundomaquetes.lovable.app").href },
     ],
+    links: [{ rel: "canonical", href: "https://minimundomaquetes.lovable.app/" }],
   }),
   component: Index,
 });
@@ -101,16 +111,8 @@ function Index() {
     <main className="min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a href="#" className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-600 text-white shadow-lg">
-              <Layers3 size={23} />
-            </span>
-            <span>
-              <strong className="block text-lg leading-none">MINI MUNDO</strong>
-              <small className="font-bold uppercase tracking-[0.2em] text-orange-500">
-                Maquetes
-              </small>
-            </span>
+          <a href="#" aria-label="Mini Mundo Maquetes — início" className="block shrink-0">
+            <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-36 object-contain sm:w-44" />
           </a>
           <nav className="hidden gap-7 text-sm font-semibold md:flex">
             <a href="#sobre" className="hover:text-blue-600">
@@ -547,9 +549,9 @@ function Index() {
         target="_blank"
         rel="noreferrer"
         aria-label="Falar no WhatsApp"
-        className="fixed bottom-5 right-5 z-50 grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white shadow-2xl transition hover:scale-110"
+        className="fixed bottom-5 right-5 z-50 block h-16 w-16 rounded-full transition hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
       >
-        <MessageCircle size={29} />
+        <img src={whatsappAsset.url} alt="" width={64} height={64} className="h-full w-full object-contain" />
       </a>
     </main>
   );
