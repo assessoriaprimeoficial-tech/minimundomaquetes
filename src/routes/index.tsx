@@ -376,9 +376,9 @@ function Index() {
           <div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-sm text-white/80">
             <div className="flex flex-col items-center gap-4 text-center">
               <span>
-                <strong className="text-white">Pagamento via Pix</strong>
+                <strong className="text-slate-900">Pagamento via Pix</strong>
                 <br />
-                <span className="text-white/60">
+                <span className="text-slate-500">
                   Chave: 21 985261185 — Adilson Simões do Nascimento
                 </span>
               </span>
