@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/logo.png.asset.json";
 import shareLogoAsset from "@/assets/share-logo.jpg.asset.json";
 import whatsappAsset from "@/assets/whatsapp.png.asset.json";
@@ -7,19 +8,17 @@ import {
   ArrowRight,
   ChevronDown,
   Clock3,
-  Hammer,
-  Layers3,
+  Menu,
+  X,
   MessageCircle,
   PackageCheck,
-  Recycle,
-  Ruler,
   Sparkles,
   WalletCards,
   UserRound,
 } from "lucide-react";
 
 const WHATSAPP =
-  "https://wa.me/5521985261185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
+  "https://wa.me/5521994183376?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
 const plans = [
   {
     name: "Simples",
@@ -80,18 +79,20 @@ const faqs = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mini Mundo Maquetes | Maquetes escolares e projetos" },
+      { title: "Mini Mundo Maquetes | Maquetes escolares sob encomenda" },
       {
         name: "description",
         content:
-          "Maquetes escolares, para feiras, cursos e projetos. Modelos simples, comuns, grandes e mega sob encomenda.",
+          "Maquetes escolares sob encomenda para feiras, cursos e projetos. Compare modelos, tamanhos e valores e peça seu orçamento pelo WhatsApp.",
       },
-      { property: "og:title", content: "Mini Mundo Maquetes" },
+      { property: "og:title", content: "Mini Mundo Maquetes | Maquetes escolares sob encomenda" },
       {
         property: "og:description",
-        content: "Transformamos ideias e projetos em maquetes feitas sob encomenda.",
+        content: "Maquetes escolares para feiras, cursos e projetos, feitas sob encomenda. Confira modelos e peça seu orçamento.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:url", content: "https://minimundomaquetes.lovable.app/" },
       { property: "og:image", content: new URL(shareLogoAsset.url, "https://minimundomaquetes.lovable.app").href },
       { property: "og:image:width", content: "1200" },
@@ -101,59 +102,53 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: new URL(shareLogoAsset.url, "https://minimundomaquetes.lovable.app").href },
     ],
     links: [{ rel: "canonical", href: "https://minimundomaquetes.lovable.app/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify({
+      "@context": "https://schema.org", "@type": "Organization", name: "Mini Mundo Maquetes",
+      url: "https://minimundomaquetes.lovable.app/", logo: new URL(logoAsset.url, "https://minimundomaquetes.lovable.app").href,
+      description: "Maquetes escolares sob encomenda para feiras, cursos e projetos.",
+      contactPoint: { "@type": "ContactPoint", telephone: "+55-21-99418-3376", contactType: "customer service", availableLanguage: "Portuguese" }
+    }) }],
   }),
   component: Index,
 });
 
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a href="#" aria-label="Mini Mundo Maquetes — início" className="block shrink-0">
+    <main className="site-page min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-xl">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-3 sm:flex sm:justify-between lg:px-8">
+          <a href="#sobre" aria-label="Mini Mundo Maquetes — início" className="block min-w-0 shrink-0">
             <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-24 object-contain sm:w-28" />
           </a>
-          <nav className="hidden gap-7 text-sm font-semibold md:flex">
-            <a href="#sobre" className="hover:text-blue-600">
-              Sobre
-            </a>
-            <a href="#modelos" className="hover:text-blue-600">
-              Modelos
-            </a>
-            <a href="#como-funciona" className="hover:text-blue-600">
-              Como funciona
-            </a>
-            <a href="#avaliacoes" className="hover:text-blue-600">
-              Galeria
-            </a>
-            <a href="#duvidas" className="hover:text-blue-600">
-              Dúvidas
-            </a>
+          <nav aria-label="Menu principal" className="hidden items-center gap-5 font-semibold lg:flex">
+            {[['#sobre', 'Sobre'], ['#modelos', 'Modelos'], ['#como-funciona', 'Como funciona'], ['#avaliacoes', 'Avaliações'], ['#duvidas', 'Dúvidas']].map(([href, label]) => <a key={href} href={href} className="hover:text-brand">{label}</a>)}
           </nav>
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full bg-blue-600 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-blue-700"
-          >
-            Pedir orçamento
-          </a>
+          <div className="flex shrink-0 items-center gap-2">
+            <Button asChild size="sm" className="h-9 px-3 text-sm font-bold"><a href={WHATSAPP} target="_blank" rel="noreferrer">Pedir orçamento</a></Button>
+            <Button variant="ghost" size="icon" className="h-11 w-11 lg:hidden" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls="mobile-menu" onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+            </Button>
+          </div>
         </div>
+        {menuOpen && <nav id="mobile-menu" aria-label="Menu do celular" className="grid border-t border-border bg-surface px-5 py-2 lg:hidden">
+          {[['#sobre', 'Sobre'], ['#modelos', 'Modelos e valores'], ['#como-funciona', 'Como funciona'], ['#avaliacoes', 'Avaliações'], ['#duvidas', 'Dúvidas']].map(([href, label]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="py-3 font-semibold text-foreground hover:text-brand">{label}</a>)}
+        </nav>}
       </header>
 
-      <section className="relative pt-28 text-center">
+      <section id="sobre" className="relative scroll-mt-24 pt-24 text-center">
         <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
         <div className="absolute -right-24 top-28 h-96 w-96 rounded-full bg-blue-300/30 blur-3xl" />
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-5 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-16">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-5 pb-10 pt-6 lg:px-8 lg:pb-12 lg:pt-8">
           <div className="relative z-10 flex w-full flex-col items-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-blue-700 shadow-sm">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-extrabold uppercase tracking-[0.16em] text-blue-700 shadow-sm">
               <Sparkles size={15} /> Feitas sob encomenda
             </div>
-            <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[0.96] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-              Sua ideia em um <span className="text-blue-600">Mini Mundo.</span>
+            <h1 className="mx-auto max-w-4xl text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">
+              <span className="text-brand">Mini Mundo Maquetes</span>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
+            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
               Fabricamos{" "}
               <strong className="text-slate-900">
                 maquetes escolares, para feiras, cursos e projetos
@@ -188,7 +183,7 @@ function Index() {
                   className="min-w-0 rounded-2xl border border-slate-100 bg-white/80 px-2 py-4 shadow-sm sm:px-4"
                 >
                   <b className="block text-xl font-black text-blue-700">{a}</b>
-                  <span className="text-xs font-semibold text-slate-500">{b}</span>
+                  <span className="text-sm font-semibold text-muted-foreground">{b}</span>
                 </div>
               ))}
             </div>
@@ -199,32 +194,32 @@ function Index() {
 
       </section>
 
-      <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
+      <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col items-center gap-5 text-center">
             <div>
               <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
                 Modelos e valores
               </p>
-              <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
+              <h2 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">
                 Escolha o nível da sua maquete
               </h2>
             </div>
-            <p className="max-w-md text-sm leading-6 text-slate-500">
+            <p className="max-w-md text-base leading-7 text-muted-foreground">
               Confira o tamanho, indicação e média de valor de cada modelo. Abaixo de cada
               categoria, deixamos um carrossel preparado para mostrar as maquetes reais daquele
               tipo.
             </p>
           </div>
-          <div className="mt-10 space-y-12">
+          <div className="mt-7 space-y-8">
             {plans.map((p, i) => (
               <article key={p.name} className="overflow-visible bg-transparent text-center">
                 <div className="block">
-                  <div className="relative mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
-                    <div className={"absolute inset-x-0 top-0 h-2 rounded-t-[2rem] " + p.color} />
-                    <span className="text-sm font-extrabold text-slate-400">MODELO 0{i + 1}</span>
+                  <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
+                    <div className={"absolute inset-x-0 top-0 h-2 " + p.color} />
+                    <span className="text-sm font-extrabold text-muted-foreground">MODELO 0{i + 1}</span>
                     <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
-                    <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">
+                    <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-muted-foreground">
                       {i === 0
                         ? "Ideal para trabalhos escolares mais simples, especialmente para crianças e alunos que precisam apresentar uma ideia de forma objetiva e criativa."
                         : i === 1
@@ -235,34 +230,33 @@ function Index() {
                     </p>
                     <div className="mt-6 flex flex-col gap-3">
                       <div className="rounded-2xl bg-slate-50 p-4">
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                        <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
                           Tamanho
                         </span>
                         <strong className="mt-1 block text-lg">{p.size}</strong>
                       </div>
                       <div className="rounded-2xl bg-slate-50 p-4">
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                        <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
                           Indicado para
                         </span>
-                        <strong className="mt-1 block text-sm leading-5">{p.audience}</strong>
+                        <strong className="mt-1 block text-base leading-6">{p.audience}</strong>
                       </div>
                     </div>
                     <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-4">
-                      <span className="text-xs font-bold uppercase tracking-wider text-blue-500">
+                      <span className="text-sm font-bold uppercase tracking-wider text-brand">
                         Média de valor
                       </span>
                       <strong className="mt-1 block text-2xl font-black text-blue-700">
                         {p.price}
                       </strong>
-                      <p className="mt-1 text-xs text-blue-700/70">
+                      <p className="mt-1 text-sm text-brand">
                         O valor final pode variar conforme detalhes, materiais e exigências do
                         projeto.
                       </p>
                     </div>
                     <a
                       href={
-                        WHATSAPP +
-                        "&text=Quero%20um%20or%C3%A7amento%20para%20uma%20maquete%20" +
+                        "https://wa.me/5521994183376?text=Quero%20um%20or%C3%A7amento%20para%20uma%20maquete%20" +
                         encodeURIComponent(p.name) +
                         "."
                       }
@@ -276,7 +270,7 @@ function Index() {
                   <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eaf5ff] px-0 py-10 text-center sm:px-7">
                     <div className="mx-auto mb-5 flex max-w-6xl items-center justify-center gap-4">
                       <div>
-                        <span className="text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">
+                        <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-brand-warm">
                           Fotos do modelo
                         </span>
                         <h4 className="mt-1 font-black text-slate-900">
@@ -293,7 +287,7 @@ function Index() {
                                 <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
                                   {n}
                                 </div>
-                                <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">
+                                <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.14em] text-brand-warm">
                                   Espaço para foto
                                 </p>
                                 <p className="mt-1 text-sm font-bold text-slate-700">
@@ -310,7 +304,7 @@ function Index() {
               </article>
             ))}
           </div>
-          <div className="mt-6 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-sm leading-6 text-orange-950">
+          <div className="mt-6 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-base leading-7 text-orange-950">
             <strong>Materiais novos ou réplicas:</strong> quando o projeto exige somente materiais
             novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e
             combinado diretamente com o cliente.
@@ -318,17 +312,17 @@ function Index() {
         </div>
       </section>
 
-      <section id="como-funciona" className="scroll-mt-24 bg-[#fff8ee] py-20 text-slate-900 lg:py-24">
+      <section id="como-funciona" className="scroll-mt-24 bg-[#fff8ee] py-10 text-foreground lg:py-14">
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
-          <div className="flex flex-col items-center gap-10">
+          <div className="flex flex-col items-center gap-6">
             <div>
-              <p className="font-extrabold uppercase tracking-[0.18em] text-orange-400">
+              <p className="font-extrabold uppercase tracking-[0.18em] text-brand-warm">
                 Como funciona
               </p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
                 Do pedido à retirada, tudo explicado.
               </h2>
-              <p className="mt-5 leading-7 text-white/60">
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-ink">
                 Para que o resultado fique alinhado com sua expectativa, seguimos um processo
                 simples e objetivo.
               </p>
@@ -362,7 +356,7 @@ function Index() {
                 >
                   <span className="text-3xl font-black text-blue-600">{n}</span>
                   <h3 className="mt-4 font-black">{t}</h3>
-                  <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-slate-600">{d}</p>
+                  <p className="mx-auto mt-2 max-w-2xl text-base leading-7 text-muted-foreground">{d}</p>
                 </div>
               ))}
             </div>
@@ -375,12 +369,12 @@ function Index() {
           >
             Falar sobre meu projeto <MessageCircle size={17} />
           </a>
-          <div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-sm text-white/80">
+          <div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-base text-foreground">
             <div className="flex flex-col items-center gap-4 text-center">
               <span>
                 <strong className="text-slate-900">Pagamento via Pix</strong>
                 <br />
-                <span className="text-slate-500">
+                <span className="text-muted-foreground">
                   Chave: 21 985261185 — Adilson Simões do Nascimento
                 </span>
               </span>
@@ -394,7 +388,7 @@ function Index() {
               </a>
             </div>
           </div>
-          <div className="mt-12 flex flex-col gap-4 rounded-[2rem] border border-orange-100 bg-white p-6 shadow-sm">
+          <div className="mt-8 flex flex-col gap-4 rounded-[2rem] border border-orange-100 bg-white p-6 shadow-sm">
             {(
               [
                 [WalletCards, "Pagamento", "30% de sinal + restante na retirada."],
@@ -408,7 +402,7 @@ function Index() {
                 </div>
                 <div>
                   <b className="block">{t as string}</b>
-                  <span className="mx-auto block max-w-xl text-sm text-slate-500">{d as string}</span>
+                  <span className="mx-auto block max-w-xl text-sm text-muted-foreground">{d as string}</span>
                 </div>
               </div>
             ))}
@@ -416,29 +410,29 @@ function Index() {
         </div>
       </section>
 
-      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-slate-500">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="relative left-1/2 mt-10 w-screen -translate-x-1/2 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-6 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-6 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-slate-400"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">{["Mariana Alves","Carlos Henrique","Fernanda Martins","Rafael Oliveira","Juliana Costa","André Souza"][i-1]}</span><span className="text-xs font-semibold text-slate-400">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
+      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-10 lg:py-14"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="relative left-1/2 mt-7 w-screen -translate-x-1/2 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-6 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-6 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-muted-foreground"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">{["Mariana Alves","Carlos Henrique","Fernanda Martins","Rafael Oliveira","Juliana Costa","André Souza"][i-1]}</span><span className="text-sm font-semibold text-muted-foreground">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
 
-      <section className="bg-white py-20">
+      <section className="bg-surface py-10">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-3xl border-2 border-blue-100 bg-blue-50 p-7 text-blue-950 shadow-sm">
               <span className="text-sm font-extrabold text-blue-700">Para quem é</span>
               <h3 className="mt-2 text-2xl font-black">Escolas, alunos e cursos</h3>
-              <p className="mt-3 text-sm leading-6 text-blue-800">
+              <p className="mt-3 text-base leading-7 text-blue-800">
                 Do trabalho escolar ao projeto acadêmico que precisa chamar atenção na apresentação.
               </p>
             </div>
             <div className="rounded-3xl border-2 border-orange-100 bg-orange-50 p-7 text-orange-950 shadow-sm">
               <span className="text-sm font-extrabold text-orange-700">Para apresentar</span>
               <h3 className="mt-2 text-2xl font-black">Feiras e projetos</h3>
-              <p className="mt-3 text-sm leading-6 text-orange-800">
+              <p className="mt-3 text-base leading-7 text-orange-800">
                 Modelos maiores para explicar estruturas, ambientes e ideias de forma visual.
               </p>
             </div>
             <div className="rounded-3xl border-2 border-red-100 bg-red-50 p-7 text-red-950 shadow-sm">
               <span className="text-sm font-extrabold text-red-700">Projeto especial</span>
               <h3 className="mt-2 text-2xl font-black">Materiais novos</h3>
-              <p className="mt-3 text-sm leading-6 text-red-800">
+              <p className="mt-3 text-base leading-7 text-red-800">
                 Para maquetes permanentes, réplicas e exigências específicas, o orçamento é
                 personalizado.
               </p>
@@ -455,16 +449,16 @@ function Index() {
         </div>
       </section>
 
-      <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-5 text-center lg:px-8">
+      <section id="duvidas" className="scroll-mt-24 bg-[#f7fbff] py-10 lg:py-14">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
           <div>
             <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">
               Perguntas frequentes
             </p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight">
+            <h2 className="mt-2 text-3xl font-black tracking-normal">
               Antes de pedir, tire suas dúvidas.
             </h2>
-            <p className="mt-4 text-sm leading-6 text-slate-500">
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
               Transparência é parte do nosso processo. Veja as principais informações sobre
               produção, pagamento e retirada.
             </p>
@@ -480,13 +474,13 @@ function Index() {
                   <ChevronDown
                     className={
                       "shrink-0 transition " +
-                      (openFaq === i ? "rotate-180 text-blue-600" : "text-slate-400")
+                      (openFaq === i ? "rotate-180 text-blue-600" : "text-muted-foreground")
                     }
                     size={19}
                   />
                 </button>
                 {openFaq === i && (
-                  <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-6 text-slate-600">
+                  <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-base leading-7 text-muted-foreground">
                     {a}
                   </div>
                 )}
@@ -504,10 +498,10 @@ function Index() {
         </div>
       </section>
 
-      <section className="px-5 pb-24 pt-8 lg:px-8">
+      <section className="px-5 pb-12 pt-4 lg:px-8">
         <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-blue-600 px-7 py-12 text-center text-white shadow-2xl sm:px-12">
           <p className="font-extrabold uppercase tracking-[0.18em] text-blue-100">Vamos criar?</p>
-          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-3 text-4xl font-black tracking-normal sm:text-5xl">
             Mande sua ideia e peça seu orçamento.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-blue-100">
@@ -526,20 +520,20 @@ function Index() {
       </section>
 
       <footer className="border-t border-slate-200 bg-white py-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-7 px-5 text-center text-sm text-slate-500 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-7 px-5 text-center text-sm text-muted-foreground lg:px-8">
           <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-32 object-contain sm:w-36" />
           <div>
             <strong className="text-slate-900">MINI MUNDO MAQUETES</strong>
             <p className="mt-1">Maquetes escolares, feiras, cursos e projetos.</p>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-5">
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
               className="font-bold hover:text-blue-600"
             >
-              WhatsApp
+              WhatsApp: +55 21 99418-3376
             </a>
             <span>© 2026 Mini Mundo Maquetes</span>
           </div>
