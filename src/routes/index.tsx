@@ -270,7 +270,7 @@ function Index() {
                   <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eaf5ff] px-0 py-10 text-center sm:px-7">
                     <div className="mx-auto mb-5 flex max-w-6xl items-center justify-center gap-4">
                       <div>
-                        <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-brand-warm">
+                        <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-orange-500">
                           Fotos do modelo
                         </span>
                         <h4 className="mt-1 font-black text-slate-900">
@@ -287,7 +287,7 @@ function Index() {
                                 <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
                                   {n}
                                 </div>
-                                <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.14em] text-brand-warm">
+                                <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.14em] text-orange-500">
                                   Espaço para foto
                                 </p>
                                 <p className="mt-1 text-sm font-bold text-slate-700">
@@ -316,7 +316,7 @@ function Index() {
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
           <div className="flex flex-col items-center gap-6">
             <div>
-              <p className="font-extrabold uppercase tracking-[0.18em] text-brand-warm">
+              <p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">
                 Como funciona
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
