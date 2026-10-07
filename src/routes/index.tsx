@@ -495,7 +495,7 @@ function Index() {
               </div>
             ))}
           </div>
-          <Button asChild className="mt-2 h-auto max-w-full whitespace-normal bg-brand-warm px-5 py-3 text-base font-bold text-primary-foreground hover:bg-brand-warm/90">
+          <Button asChild className="mt-2 h-auto max-w-full whitespace-normal bg-orange-500 px-5 py-3 text-base font-bold text-white hover:bg-orange-600">
             <a href={WHATSAPP} target="_blank" rel="noreferrer">
               Tirar dúvidas pelo WhatsApp <MessageCircle size={18} />
             </a>
