@@ -15,7 +15,11 @@ button,a { -webkit-tap-highlight-color: transparent; }
   to { transform: translateX(calc(-50% - 0.5rem)); }
 }
 .animate-maquette-marquee { animation: maquete-marquee 28s linear infinite; }
-.animate-maquette-marquee:hover { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   .animate-maquete-marquee { animation: none; }
 }
+
+@keyframes info-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.animate-info-marquee { animation: info-marquee 28s linear infinite; }
+@keyframes review-marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.625rem)); } }
+.animate-review-marquee { animation: review-marquee 32s linear infinite; }
