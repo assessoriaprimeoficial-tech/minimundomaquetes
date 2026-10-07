@@ -3,8 +3,6 @@ import { useState } from "react";
 import {
   ArrowRight,
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   Clock3,
   Hammer,
   Layers3,
@@ -18,24 +16,6 @@ import {
 
 const WHATSAPP =
   "https://wa.me/5521985261185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
-const gallery = [
-  {
-    title: "Maquetes escolares",
-    text: "Projetos criativos para trabalhos escolares e apresentações.",
-  },
-  {
-    title: "Projetos detalhados",
-    text: "Modelos maiores para cursos, feiras e projetos expressivos.",
-  },
-  {
-    title: "Construção e urbanismo",
-    text: "Representações visuais para explicar espaços e estruturas.",
-  },
-  {
-    title: "Projetos especiais",
-    text: "Soluções sob medida para ideias que precisam ganhar forma.",
-  },
-];
 const plans = [
   {
     name: "Simples",
@@ -116,7 +96,6 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [slide, setSlide] = useState(0);
   return (
     <main className="min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/85 backdrop-blur-xl">
@@ -142,7 +121,7 @@ function Index() {
             <a href="#como-funciona" className="hover:text-blue-600">
               Como funciona
             </a>
-            <a href="#galeria" className="hover:text-blue-600">
+            <a href="#avaliacoes" className="hover:text-blue-600">
               Galeria
             </a>
             <a href="#duvidas" className="hover:text-blue-600">
@@ -299,6 +278,8 @@ function Index() {
           </div>
         </div>
       </section>
+      <div className="overflow-hidden bg-orange-500 py-3 text-white"><div className="flex w-max animate-info-marquee whitespace-nowrap font-extrabold uppercase tracking-[0.14em]"><span className="mx-8">✦ Maquetes sob encomenda</span><span className="mx-8">✦ Prazo padrão de até 8 dias</span><span className="mx-8">✦ 30% de sinal para iniciar</span><span className="mx-8">✦ Modelos simples, comuns, grandes e mega</span><span className="mx-8">✦ Peça seu orçamento pelo WhatsApp</span><span className="mx-8">✦ Maquetes sob encomenda</span><span className="mx-8">✦ Prazo padrão de até 8 dias</span><span className="mx-8">✦ 30% de sinal para iniciar</span><span className="mx-8">✦ Modelos simples, comuns, grandes e mega</span><span className="mx-8">✦ Peça seu orçamento pelo WhatsApp</span></div></div>
+
 
       <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -374,7 +355,7 @@ function Index() {
                       Pedir orçamento para este modelo <ArrowRight size={16} />
                     </a>
                   </div>
-                  <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eef7ff] px-5 py-10 text-center sm:px-7">
+                  <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eaf5ff] px-0 py-10 text-center sm:px-7">
                     <div className="mx-auto mb-5 flex max-w-6xl items-center justify-center gap-4">
                       <div>
                         <span className="text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">
@@ -384,14 +365,11 @@ function Index() {
                           Exemplos de {p.name.toLowerCase()}
                         </h4>
                       </div>
-                      <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-400 shadow-sm">
-                        Carrossel
-                      </span>
                     </div>
                     <div className="overflow-hidden">
                       <div className="flex w-max gap-4 animate-maquette-marquee">
                         {[1, 2, 3, 1, 2, 3].map((n, index) => (
-                          <div key={index} className="min-w-[78vw] shrink-0 px-2 sm:min-w-[360px]">
+                          <div key={index} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
                             <div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 bg-white shadow-sm">
                               <div className="text-center">
                                 <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
@@ -409,10 +387,6 @@ function Index() {
                         ))}
                       </div>
                     </div>
-                    <p className="mt-4 text-xs font-semibold text-slate-400">
-                      As imagens passam automaticamente • espaço preparado para as fotos reais deste
-                      modelo.
-                    </p>
                   </div>
                 </div>
               </article>
@@ -524,86 +498,26 @@ function Index() {
         </div>
       </section>
 
-      <section id="galeria" className="scroll-mt-24 bg-white py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
-          <div>
-            <p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">Inspiração</p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
-              Ideias que ganham forma.
-            </h2>
-          </div>
-          <div className="relative mt-10">
-            <button
-              onClick={() => setSlide((slide + gallery.length - 1) % gallery.length)}
-              aria-label="Imagem anterior"
-              className="absolute -left-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white shadow-xl ring-1 ring-slate-200 sm:grid"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {gallery.map((item, i) => (
-                <button
-                  key={item.title}
-                  onClick={() => setSlide(i)}
-                  className={
-                    "group relative overflow-hidden rounded-3xl border-2 border-dashed bg-gradient-to-br from-blue-50 via-white to-orange-50 p-4 text-left transition " +
-                    (slide === i
-                      ? "border-blue-500 ring-4 ring-blue-100"
-                      : "border-slate-200 hover:border-blue-300")
-                  }
-                >
-                  <div className="flex h-56 items-center justify-center rounded-2xl border border-dashed border-blue-200 bg-white/70">
-                    <div className="text-center">
-                      <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
-                        {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-500">
-                        Espaço para foto
-                      </p>
-                      <h3 className="mt-1 font-black text-slate-900">{item.title}</h3>
-                      <p className="mt-1 text-xs leading-5 text-slate-500">{item.text}</p>
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700"
-            >
-              Quero enviar minha ideia <MessageCircle size={18} />
-            </a>
-            <button
-              onClick={() => setSlide((slide + 1) % gallery.length)}
-              aria-label="Próxima imagem"
-              className="absolute -right-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white shadow-xl ring-1 ring-slate-200 sm:grid"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
-      </section>
+      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-20 lg:py-24"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-slate-500">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="mt-10 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-xl tracking-[0.2em] text-orange-500">★★★★★</div><p className="mt-5 text-base font-semibold leading-7 text-slate-700">“Espaço para avaliação real do cliente.”</p><span className="mt-5 block text-sm font-extrabold text-blue-600">Cliente Mini Mundo</span></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
           <div className="grid gap-6 lg:grid-cols-3">
-            <div className="rounded-3xl bg-blue-600 p-7 text-white">
+            <div className="rounded-3xl border-2 border-blue-100 bg-blue-50 p-7 text-blue-950 shadow-sm">
               <span className="text-sm font-bold text-blue-100">Para quem é</span>
               <h3 className="mt-2 text-2xl font-black">Escolas, alunos e cursos</h3>
               <p className="mt-3 text-sm leading-6 text-blue-100">
                 Do trabalho escolar ao projeto acadêmico que precisa chamar atenção na apresentação.
               </p>
             </div>
-            <div className="rounded-3xl bg-orange-500 p-7 text-white">
+            <div className="rounded-3xl border-2 border-orange-100 bg-orange-50 p-7 text-orange-950 shadow-sm">
               <span className="text-sm font-bold text-orange-100">Para apresentar</span>
               <h3 className="mt-2 text-2xl font-black">Feiras e projetos</h3>
               <p className="mt-3 text-sm leading-6 text-orange-100">
                 Modelos maiores para explicar estruturas, ambientes e ideias de forma visual.
               </p>
             </div>
-            <div className="rounded-3xl bg-slate-950 p-7 text-white">
+            <div className="rounded-3xl border-2 border-red-100 bg-red-50 p-7 text-red-950 shadow-sm">
               <span className="text-sm font-bold text-slate-400">Projeto especial</span>
               <h3 className="mt-2 text-2xl font-black">Materiais novos</h3>
               <p className="mt-3 text-sm leading-6 text-slate-400">
