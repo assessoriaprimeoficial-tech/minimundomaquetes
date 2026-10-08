@@ -1,4 +1,5 @@
 # Tasks
+- [x] Add three supplied stadium photos to Simples and verify equal comfortable carousel speed.
 - [x] Improve legibility, contrast, spacing and model-card curved accents.
 - [x] Update WhatsApp to +55 21 99418-3376 and add compact header/mobile menu.
 - [x] Improve Google SEO metadata and crawl discovery.
