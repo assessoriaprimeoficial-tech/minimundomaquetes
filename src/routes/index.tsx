@@ -132,7 +132,7 @@ function Index() {
         if (!(target instanceof HTMLElement)) continue;
         const gap = Number.parseFloat(getComputedStyle(target).columnGap) || 0;
         const distance = (target.getBoundingClientRect().width + gap) / 2;
-        target.style.setProperty("--marquee-duration", `${Math.max(distance / 40, 1)}s`);
+        target.style.setProperty("--marquee-duration", `${Math.max(distance / 100, 1)}s`);
       }
     });
     tracks.forEach((track) => observer.observe(track));
