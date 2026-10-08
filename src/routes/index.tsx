@@ -280,26 +280,20 @@ function Index() {
                     </div>
                     <div className="overflow-hidden">
                       <div className="flex w-max gap-4 animate-maquette-marquee">
-                        {[0, 1, 2, 3, 4, 5].map((photoIndex) => (
-                          <div key={photoIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
+                        {[0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5].map((photoIndex, carouselIndex) => (
+                          <div key={carouselIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
                             {i === 0 ? (
-                              <div
-                                className="h-64 rounded-2xl border border-blue-200 bg-white shadow-sm"
-                                style={{
-                                  backgroundImage: "url('/simple-maquetes.jpg')",
-                                  backgroundSize: "200% 300%",
-                                  backgroundPosition: [
-                                    "0% 0%",
-                                    "100% 0%",
-                                    "0% 50%",
-                                    "100% 50%",
-                                    "0% 100%",
-                                    "100% 100%",
-                                  ][photoIndex],
-                                }}
-                                aria-label={`Foto ${photoIndex + 1} da maquete simples`}
-                                role="img"
-                              />
+                              <div className="h-64 overflow-hidden rounded-2xl border border-blue-200 bg-white shadow-sm">
+                                <img
+                                  src={`/maquetes/simples/simple-${photoIndex + 1}.jpg`}
+                                  alt={`Foto ${photoIndex + 1} da maquete simples`}
+                                  width={1600}
+                                  height={1200}
+                                  loading={carouselIndex < 3 ? "eager" : "lazy"}
+                                  decoding="async"
+                                  className="h-full w-full object-contain"
+                                />
+                              </div>
                             ) : (
                               <div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 bg-white shadow-sm">
                                 <div className="text-center">
