@@ -283,17 +283,15 @@ function Index() {
                         {[0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5].map((photoIndex, carouselIndex) => (
                           <div key={carouselIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
                             {i === 0 ? (
-                              <div className="h-64 overflow-hidden rounded-2xl border border-blue-200 bg-white shadow-sm">
-                                <img
-                                  src={`/maquetes/simples/simple-${photoIndex + 1}.jpg`}
-                                  alt={`Foto ${photoIndex + 1} da maquete simples`}
-                                  width={1600}
-                                  height={1200}
-                                  loading={carouselIndex < 3 ? "eager" : "lazy"}
-                                  decoding="async"
-                                  className="h-full w-full object-contain"
-                                />
-                              </div>
+                              <img
+                                src={`/maquetes/simples/simple-${photoIndex + 1}.jpg`}
+                                alt={`Foto ${photoIndex + 1} da maquete simples`}
+                                width={1600}
+                                height={1200}
+                                loading={carouselIndex < 3 ? "eager" : "lazy"}
+                                decoding="async"
+                                className="block h-auto max-w-[82vw] rounded-2xl object-contain sm:max-w-[420px]"
+                              />
                             ) : (
                               <div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 bg-white shadow-sm">
                                 <div className="text-center">
