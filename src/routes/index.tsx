@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/logo.png.asset.json";
 import shareLogoAsset from "@/assets/share-logo.jpg.asset.json";
 import whatsappAsset from "@/assets/whatsapp.png.asset.json";
+import simpleStadium3 from "@/assets/simples-estadio-3.png.asset.json";
+import simpleStadium4 from "@/assets/simples-estadio-4.png.asset.json";
+import simpleStadium5 from "@/assets/simples-estadio-5.png.asset.json";
 import {
   ArrowRight,
   ChevronDown,
@@ -50,7 +53,7 @@ const plans = [
   },
 ];
 const carouselImages = {
-  simples: ["/maquetes/simples/simple-1.jpg","/maquetes/simples/simple-2.jpg","/maquetes/simples/simple-3.jpg","/maquetes/simples/simple-4.jpg","/maquetes/simples/simple-5.jpg","/maquetes/simples/simple-6.jpg"],
+  simples: ["/maquetes/simples/simple-1.jpg","/maquetes/simples/simple-2.jpg","/maquetes/simples/simple-3.jpg","/maquetes/simples/simple-4.jpg","/maquetes/simples/simple-5.jpg","/maquetes/simples/simple-6.jpg", simpleStadium3.url, simpleStadium4.url, simpleStadium5.url],
   comum: ["/maquetes/comum/0b9014e4-4f95-4b4b-bd22-2e57f79cedfd.jpg","/maquetes/comum/0c45016a-17b6-43f4-aa91-3a4e11640d99.jpg","/maquetes/comum/0c6a4fee-9d9e-4d08-a3f8-55baf8592124.jpg","/maquetes/comum/0de77307-11e8-48ec-9b4d-ae992ce67f2a.jpg","/maquetes/comum/125c8f62-4548-4067-a546-7884fdb22836.jpg","/maquetes/comum/1a430770-ce68-420c-a979-a9275ebe34a0.jpg","/maquetes/comum/1a5ac719-3f7f-453b-b4b2-53996d4fee1a.jpg","/maquetes/comum/1bdc8383-2049-460f-ac06-b5a58f92e885.jpg","/maquetes/comum/1fd95a8f-deae-47e5-8a85-91398821e5b8.jpg","/maquetes/comum/21356367-acb3-43d7-8d87-1d770a6230a9.jpg","/maquetes/comum/25b584c3-bc35-48d2-8f2b-6091f950b2a1.jpg","/maquetes/comum/2d7d22d4-a257-4cb5-89ec-c8d5f5fa85d6.jpg","/maquetes/comum/2dd8c9ef-b8e6-48b9-b286-2589f754f411.jpg","/maquetes/comum/315f9ca7-3a4a-499f-95b8-60397e6e906b.jpg","/maquetes/comum/366635ac-3f47-4791-a231-d3cf2fe650a3.jpg","/maquetes/comum/387f627b-47b1-4d28-a90a-4aa149da3d49.jpg","/maquetes/comum/3cc61672-550d-4d22-aa2f-5ffd639ef5b9.jpg","/maquetes/comum/416985ec-907c-46b2-8678-0019aef25728.jpg","/maquetes/comum/46d079a8-ea3e-4e46-8c76-3e188d3cf572.jpg","/maquetes/comum/51737cae-ca09-4a4a-85a3-538e396496b2.jpg","/maquetes/comum/5af4e981-4f6a-4ee8-8024-23c239477945.jpg","/maquetes/comum/5cd0a31c-d276-4721-9147-12e1457a5c3c.jpg","/maquetes/comum/5d185c0e-1026-414f-8989-4db639a959ff.jpg","/maquetes/comum/65065579-37ce-45d3-9172-32abc16b2aee.jpg","/maquetes/comum/694efc64-e39f-4a77-b2f0-b5ecb8540177.jpg","/maquetes/comum/69db17a7-5234-4545-aac1-3f35c6c854e1.jpg","/maquetes/comum/6c18052f-37ef-43e3-a11e-67ad2898f4e4.jpg","/maquetes/comum/6d393a8f-3c86-486e-8a16-c099d7ea1271.jpg","/maquetes/comum/702fc074-7937-4c1e-bdc3-aa8f08449fad.jpg","/maquetes/comum/73af4ea9-40b5-4084-adfd-276bd3f24249.jpg","/maquetes/comum/73de6da1-3b08-4dba-aec5-993b9e71ba78.jpg","/maquetes/comum/74e828d8-ad7a-44d2-be65-1df631159cb6.jpg","/maquetes/comum/79658d58-b7b3-4850-8671-b95946e3467d.jpg","/maquetes/comum/8535d7ce-182c-4274-baa1-3c6662693ca5.jpg","/maquetes/comum/86ca4ce4-4572-4b3a-bf0e-05aab346c120.jpg","/maquetes/comum/8c059708-58d6-486b-87c0-90af7450d542.jpg","/maquetes/comum/8c0ea3d5-818f-40df-82f9-cd0ac63b0b5b.jpg","/maquetes/comum/97a82b78-feed-4e0b-b051-2c08aa6c4609.jpg","/maquetes/comum/9d71fc40-a3f5-4116-9b32-7bdd8e2b201d.jpg","/maquetes/comum/9eb45b7b-5281-479f-94df-4c41fbd8d510.jpg","/maquetes/comum/a6b53add-bcfc-4b0b-92ee-bd11068fedc3.jpg","/maquetes/comum/b0d6153f-35ae-4892-bdf3-6de7b4425df2.jpg","/maquetes/comum/b1ef54a0-2a01-4b3e-a605-90262fb635f2.jpg","/maquetes/comum/b7bfae06-4a9b-4f5b-bcf2-ce78301fdf3b.jpg","/maquetes/comum/b83f81df-9a1a-4c31-9b8b-465f29842a61.jpg","/maquetes/comum/ba501514-df61-480f-8cbe-34e4a30dddcc.jpg","/maquetes/comum/bcdb762a-d507-49d0-8aba-1eb395885ab7.jpg","/maquetes/comum/bd5d5dc5-8e75-4b7f-8015-3deeb57c08fa.jpg","/maquetes/comum/c5244c95-894c-45bf-a0b2-ec6e2e38c9b2.jpg","/maquetes/comum/cb7bfce0-5568-4b0d-9d69-d813d02a5210.jpg"],
 };
 
@@ -120,6 +123,21 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    const tracks = document.querySelectorAll<HTMLElement>(
+      ".animate-maquette-marquee, .animate-info-marquee, .animate-review-marquee",
+    );
+    const observer = new ResizeObserver((entries) => {
+      for (const { target } of entries) {
+        if (!(target instanceof HTMLElement)) continue;
+        const gap = Number.parseFloat(getComputedStyle(target).columnGap) || 0;
+        const distance = (target.getBoundingClientRect().width + gap) / 2;
+        target.style.setProperty("--marquee-duration", `${Math.max(distance / 40, 1)}s`);
+      }
+    });
+    tracks.forEach((track) => observer.observe(track));
+    return () => observer.disconnect();
+  }, []);
   return (
     <main className="site-page min-h-screen overflow-hidden bg-[#f7fbff] text-slate-900">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-xl">
