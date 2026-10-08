@@ -280,21 +280,41 @@ function Index() {
                     </div>
                     <div className="overflow-hidden">
                       <div className="flex w-max gap-4 animate-maquette-marquee">
-                        {[1, 2, 3, 1, 2, 3].map((n, index) => (
-                          <div key={index} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
-                            <div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 bg-white shadow-sm">
-                              <div className="text-center">
-                                <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
-                                  {n}
+                        {[0, 1, 2, 3, 4, 5].map((photoIndex) => (
+                          <div key={photoIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
+                            {i === 0 ? (
+                              <div
+                                className="h-64 rounded-2xl border border-blue-200 bg-white shadow-sm"
+                                style={{
+                                  backgroundImage: "url('/simple-maquetes.jpg')",
+                                  backgroundSize: "200% 300%",
+                                  backgroundPosition: [
+                                    "0% 0%",
+                                    "100% 0%",
+                                    "0% 50%",
+                                    "100% 50%",
+                                    "0% 100%",
+                                    "100% 100%",
+                                  ][photoIndex],
+                                }}
+                                aria-label={`Foto ${photoIndex + 1} da maquete simples`}
+                                role="img"
+                              />
+                            ) : (
+                              <div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-blue-200 bg-white shadow-sm">
+                                <div className="text-center">
+                                  <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-lg font-black text-white">
+                                    {photoIndex + 1}
+                                  </div>
+                                  <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.14em] text-orange-500">
+                                    Espaço para foto
+                                  </p>
+                                  <p className="mt-1 text-sm font-bold text-slate-700">
+                                    Maquete {p.name.toLowerCase()}
+                                  </p>
                                 </div>
-                                <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.14em] text-orange-500">
-                                  Espaço para foto
-                                </p>
-                                <p className="mt-1 text-sm font-bold text-slate-700">
-                                  Maquete {p.name.toLowerCase()}
-                                </p>
                               </div>
-                            </div>
+                            )}
                           </div>
                         ))}
                       </div>
