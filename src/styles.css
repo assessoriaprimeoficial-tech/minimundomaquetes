@@ -34,15 +34,15 @@ button,a { -webkit-tap-highlight-color: transparent; }
   from { transform: translateX(0); }
   to { transform: translateX(calc(-50% - 0.5rem)); }
 }
-.animate-maquette-marquee { animation: maquete-marquee var(--marquee-duration, 60s) linear infinite; }
+.animate-maquette-marquee { animation: maquete-marquee var(--marquee-duration, 48s) linear infinite; }
 @media (prefers-reduced-motion: reduce) {
   .animate-maquete-marquee { animation: none; }
 }
 
 @keyframes info-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.animate-info-marquee { animation: info-marquee var(--marquee-duration, 60s) linear infinite; }
+.animate-info-marquee { animation: info-marquee var(--marquee-duration, 48s) linear infinite; }
 @keyframes review-marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.625rem)); } }
-.animate-review-marquee { animation: review-marquee var(--marquee-duration, 60s) linear infinite; }
+.animate-review-marquee { animation: review-marquee var(--marquee-duration, 48s) linear infinite; }
 
 .site-page { font-size: 18px; line-height: 1.6; }
 .site-page h3, .site-page h4 { line-height: 1.3; }
