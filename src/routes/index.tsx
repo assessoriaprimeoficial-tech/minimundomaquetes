@@ -455,7 +455,7 @@ function Index() {
                           <div key={carouselIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
                             {(i === 0 || i === 1 || i === 2 || i === 3) ? (
                               <img
-                                src={src}
+                                src={src.split("/").map((segment) => encodeURIComponent(segment)).join("/")}
                                 alt={`Foto da maquete ${p.name.toLowerCase()}`}
                                 loading={carouselIndex < 3 ? "eager" : "lazy"}
                                 decoding="async"
