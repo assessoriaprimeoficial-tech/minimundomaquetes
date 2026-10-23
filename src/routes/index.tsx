@@ -184,22 +184,22 @@ function Index() {
       <section id="sobre" className="relative scroll-mt-24 pt-24 text-center">
         <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
         <div className="absolute -right-24 top-28 h-96 w-96 rounded-full bg-blue-300/30 blur-3xl" />
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-5 pb-10 pt-6 lg:px-8 lg:pb-12 lg:pt-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-5 pb-8 pt-6 lg:px-8 lg:pb-10 lg:pt-8">
           <div className="relative z-10 flex w-full flex-col items-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-extrabold uppercase tracking-[0.16em] text-blue-700 shadow-sm">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-extrabold uppercase tracking-[0.16em] text-blue-700 shadow-sm">
               <Sparkles size={15} /> Feitas sob encomenda
             </div>
             <h1 className="mx-auto max-w-4xl text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">
               <span className="text-brand">Mini Mundo Maquetes</span>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
               Fabricamos{" "}
               <strong className="text-slate-900">
                 maquetes escolares, para feiras, cursos e projetos
               </strong>
               , com diferentes tamanhos e níveis de detalhe.
             </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href={WHATSAPP}
                 target="_blank"
@@ -216,7 +216,7 @@ function Index() {
                 Ver modelos e valores
               </a>
             </div>
-            <div className="mt-9 grid w-full max-w-xl grid-cols-3 gap-2 text-center sm:gap-3">
+            <div className="mt-7 grid w-full max-w-xl grid-cols-3 gap-2 text-center sm:gap-3">
               {[
                 ["8 dias", "prazo padrão"],
                 ["30%", "sinal inicial"],
@@ -238,7 +238,7 @@ function Index() {
 
       </section>
 
-      <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-10 lg:py-14">
+      <section id="modelos" className="scroll-mt-24 bg-[#f7fbff] py-8 lg:py-12">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col items-center gap-5 text-center">
             <div>
@@ -255,7 +255,7 @@ function Index() {
               tipo.
             </p>
           </div>
-          <div className="mt-7 space-y-8">
+          <div className="mt-6 space-y-6">
             {plans.map((p, i) => (
               <article key={p.name} className="overflow-visible bg-transparent text-center">
                 <div className="block">
@@ -311,8 +311,8 @@ function Index() {
                       Pedir orçamento para este modelo <ArrowRight size={16} />
                     </a>
                   </div>
-                  <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eaf5ff] px-0 py-10 text-center sm:px-7">
-                    <div className="mx-auto mb-5 flex max-w-6xl items-center justify-center gap-4">
+                  <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eaf5ff] px-0 py-8 text-center sm:px-7">
+                    <div className="mx-auto mb-4 flex max-w-6xl items-center justify-center gap-4">
                       <div>
                         <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-orange-500">
                           Fotos do modelo
@@ -358,7 +358,7 @@ function Index() {
               </article>
             ))}
           </div>
-          <div className="mt-6 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-base leading-7 text-orange-950">
+          <div className="mt-5 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-base leading-7 text-orange-950">
             <strong>Materiais novos ou réplicas:</strong> quando o projeto exige somente materiais
             novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e
             combinado diretamente com o cliente.
@@ -366,18 +366,18 @@ function Index() {
         </div>
       </section>
 
-      <section id="galeria" className="scroll-mt-24 overflow-hidden bg-surface py-10 lg:py-14">
+      <section id="galeria" className="scroll-mt-24 overflow-hidden bg-surface py-8 lg:py-12">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col items-center gap-5 text-center">
             <div>
               <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Galeria</p>
               <h2 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">Trabalhos reais da Mini Mundo</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
+              <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
                 Uma seleção de maquetes entregues ao longo do tempo, com os mais diferentes temas e níveis de detalhe.
               </p>
             </div>
           </div>
-          <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden">
+          <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden">
             <div className="flex w-max animate-gallery-marquee gap-4 py-2">
               {[...galleryImages, ...galleryImages].map((src, i) => (
                 <div key={`${src}-${i}`} className="w-[78vw] max-w-[340px] shrink-0 sm:w-[360px]">
@@ -397,7 +397,7 @@ function Index() {
 
       <section id="como-funciona" className="scroll-mt-24 bg-[#fff8ee] py-10 text-foreground lg:py-14">
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-5">
             <div>
               <p className="font-extrabold uppercase tracking-[0.18em] text-orange-500">
                 Como funciona
@@ -405,7 +405,7 @@ function Index() {
               <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
                 Do pedido à retirada, tudo explicado.
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-ink">
+              <p className="mx-auto mt-3 max-w-2xl text-lg leading-8 text-ink">
                 Para que o resultado fique alinhado com sua expectativa, seguimos um processo
                 simples e objetivo.
               </p>
@@ -435,7 +435,7 @@ function Index() {
               ].map(([n, t, d]) => (
                 <div
                   key={n}
-                  className="rounded-3xl border border-orange-100 bg-white p-7 text-center shadow-sm hover:-translate-y-0.5 hover:shadow-md"
+                  className="rounded-3xl border border-orange-100 bg-white p-6 text-center shadow-sm hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <span className="text-3xl font-black text-blue-600">{n}</span>
                   <h3 className="mt-4 font-black">{t}</h3>
@@ -448,11 +448,11 @@ function Index() {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
-            className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-orange-600"
+            className="mx-auto mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-extrabold text-white shadow-lg hover:bg-orange-600"
           >
             Falar sobre meu projeto <MessageCircle size={17} />
           </a>
-          <div className="mt-8 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-base text-foreground">
+          <div className="mt-6 rounded-2xl border border-blue-400/20 bg-blue-500/10 p-5 text-base text-foreground">
             <div className="flex flex-col items-center gap-4 text-center">
               <span>
                 <strong className="text-slate-900">Pagamento via Pix</strong>
@@ -471,7 +471,7 @@ function Index() {
               </a>
             </div>
           </div>
-          <div className="mt-8 flex flex-col gap-4 rounded-[2rem] border border-orange-100 bg-white p-6 shadow-sm">
+          <div className="mt-6 flex flex-col gap-4 rounded-[2rem] border border-orange-100 bg-white p-6 shadow-sm">
             {(
               [
                 [WalletCards, "Pagamento", "30% de sinal + restante na retirada."],
@@ -493,9 +493,9 @@ function Index() {
         </div>
       </section>
 
-      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-10 lg:py-14"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="relative left-1/2 mt-7 w-screen -translate-x-1/2 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-6 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-6 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-muted-foreground"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">{["Mariana Alves","Carlos Henrique","Fernanda Martins","Rafael Oliveira","Juliana Costa","André Souza"][i-1]}</span><span className="text-sm font-semibold text-muted-foreground">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
+      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-8 lg:py-12"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-3 max-w-2xl text-muted-foreground">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-5 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-5 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-muted-foreground"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">{["Mariana Alves","Carlos Henrique","Fernanda Martins","Rafael Oliveira","Juliana Costa","André Souza"][i-1]}</span><span className="text-sm font-semibold text-muted-foreground">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
 
-      <section className="bg-surface py-10">
+      <section className="bg-surface py-8">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-3xl border-2 border-blue-100 bg-blue-50 p-7 text-blue-950 shadow-sm">
@@ -525,15 +525,15 @@ function Index() {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
-            className="mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-orange-600"
+            className="mx-auto mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-orange-600"
           >
             Falar sobre meu projeto <MessageCircle size={18} />
           </a>
         </div>
       </section>
 
-      <section id="duvidas" className="scroll-mt-24 bg-background py-10 lg:py-14">
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-5 text-center lg:px-8">
+      <section id="duvidas" className="scroll-mt-24 bg-background py-8 lg:py-12">
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5 px-5 text-center lg:px-8">
           <div>
             <p className="font-extrabold uppercase text-brand">
               Perguntas frequentes
@@ -541,7 +541,7 @@ function Index() {
             <h2 className="mt-2 text-3xl font-black tracking-normal">
               Antes de pedir, tire suas dúvidas.
             </h2>
-            <p className="mt-4 text-base leading-7 text-muted-foreground">
+            <p className="mt-3 text-base leading-7 text-muted-foreground">
               Transparência é parte do nosso processo. Veja as principais informações sobre
               produção, pagamento e retirada.
             </p>
@@ -586,8 +586,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="px-5 pb-12 pt-4 lg:px-8">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-blue-600 px-7 py-12 text-center text-white shadow-2xl sm:px-12">
+      <section className="px-5 pb-10 pt-4 lg:px-8">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-blue-600 px-7 py-10 text-center text-white shadow-2xl sm:px-12">
           <p className="font-extrabold uppercase tracking-[0.18em] text-blue-100">Vamos criar?</p>
           <h2 className="mt-3 text-4xl font-black tracking-normal sm:text-5xl">
             Mande sua ideia e peça seu orçamento.
@@ -600,15 +600,15 @@ function Index() {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-blue-700 shadow-lg hover:-translate-y-1"
+            className="mt-7 inline-flex items-center gap-3 rounded-2xl bg-white px-7 py-4 font-black text-blue-700 shadow-lg hover:-translate-y-1"
           >
             Falar pelo WhatsApp <MessageCircle size={20} />
           </a>
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white py-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-7 px-5 text-center text-sm text-muted-foreground lg:px-8">
+      <footer className="border-t border-slate-200 bg-white py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center text-sm text-muted-foreground lg:px-8">
           <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-32 object-contain sm:w-36" />
           <div>
             <strong className="text-slate-900">MINI MUNDO MAQUETES</strong>
