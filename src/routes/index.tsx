@@ -69,7 +69,8 @@ const carouselImages = {
 
 const planCarousels = [carouselImages.simples, carouselImages.comum, carouselImages.grande, carouselImages.mega];
 
-const galleryImages = Array.from({ length: 120 }, (_, i) => `/galeria/MiniMundo_${String(i + 1).padStart(3, "0")}.jpg`);
+declare const __GALLERY_PHOTOS__: string[];
+const galleryImages: string[] = __GALLERY_PHOTOS__;
 
 const faqs = [
   [
@@ -385,7 +386,7 @@ function Index() {
               ))}
             </div>
           </div>
-          <p className="mt-3 text-center text-sm font-semibold text-muted-foreground">As fotos deslizam automaticamente. As 120 fotos são carregadas de <code>public/galeria/</code> (MiniMundo_001.jpg até MiniMundo_120.jpg).</p>
+          <p className="mt-3 text-center text-sm font-semibold text-muted-foreground">As fotos deslizam automaticamente. As {galleryImages.length} fotos são carregadas de <code>public/galeria/</code>.</p>
         </div>
       </section>
 
