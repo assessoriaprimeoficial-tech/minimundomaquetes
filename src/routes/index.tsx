@@ -17,7 +17,6 @@ import {
   PackageCheck,
   Sparkles,
   WalletCards,
-  UserRound,
 } from "lucide-react";
 
 const WHATSAPP =
@@ -104,6 +103,34 @@ const faqs = [
     "A retirada é feita no local de fabricação e fica sob responsabilidade do cliente, pessoalmente ou por Uber/Carga.",
   ],
 ];
+
+const googleReviews = [
+  { name: "Ana Beatriz Nunes", time: "2 anos atrás", text: "Fiquei surpresa com o trabalho que me foi entregue. Cheio de detalhes, e perfeito. Eu precisava de uma maquete que retratasse o clima da Inglaterra, e ele fez de forma claríssima. Super recomendo. Procurei-o com uns 15 dias de antecedência, e antes da data marcada, ele já estava com a maquete pronta. Muito obrigada pelo profissionalismo." },
+  { name: "Karla Oliveira", time: "2 meses atrás", text: "Recomendo muito o trabalho do Sr. Adilson! Ele confeccionou uma maquete escolar para o 7º ano e o resultado ficou simplesmente perfeito. Tudo foi feito com muito capricho, dedicação e atenção aos detalhes. Ele entregou antes do prazo." },
+  { name: "Daniely Rodrigues", time: "uma semana atrás", text: "Trabalho maravilhoso nos mínimos detalhes! Impecável! Ótimo atendimento e entrega super rápida... Amei e super indico!!!" },
+  { name: "Miguel Miguel", time: "um mês atrás", text: "Super-profissional. Precisei para 2 dias, fechamos e ele fez um trabalho muito bonito, rápido e em um preço justo." },
+  { name: "Roberta Medeiros", time: "2 meses atrás", text: "Solicitei a maquete para um trabalho escolar que eu realmente não teria habilidade para fazer, e além de fazer muito rápido, chegou bem fidedigna com a minha necessidade. Super recomendo!" },
+  { name: "Mauro Decote", time: "4 meses atrás", text: "Atendeu demais minhas expectativas, muito atento aos detalhes, me surpreendeu, gostei muito e recomendo." },
+  { name: "Daiana Roberta Salgado", time: "um ano atrás", text: "Super indico o trabalho do Sr. Adilson. A maquete ficou perfeita... ele dá uma atenção imensa, cumpre com dia e horário. Podem contactá-lo sem medo!" },
+  { name: "Ivan Kalil", time: "um ano atrás", text: "Tirei 10 no meu trabalho graças à maquete do Adilson." },
+  { name: "Claudete Cardoso", time: "2 anos atrás", text: "Gente, que trabalho mais que perfeito! Se eu pudesse daria 10 estrelas!" },
+  { name: "Claudio Luiz Silva", time: "um ano atrás", text: "Encomendei com o Sr. Adilson uma maquete do bairro Méier e ficou muito 🔝! Atencioso e confecção de ótima qualidade. Recomendo!!!" },
+  { name: "Ana Santanna", time: "um ano atrás", text: "Quero agradecer de coração por ter feito minha maquete da faculdade com tanto capricho e dedicação. O resultado ficou incrível, superou todas as minhas expectativas!" },
+  { name: "Marcelo Barros", time: "2 anos atrás", text: "Excelente profissional, já fiz várias maquetes com ele, sempre entrega no prazo e os trabalhos são muito bem feitos." },
+];
+
+const GOOGLE_REVIEWS_URL = "https://share.google/25eE2iOieYlBJZKgc";
+
+function GoogleG({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
+      <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" />
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
+      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z" />
+      <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" />
+    </svg>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -493,7 +520,39 @@ function Index() {
         </div>
       </section>
 
-      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-8 lg:py-12"><div className="mx-auto max-w-7xl px-5 text-center lg:px-8"><p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p><h2 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">Quem já pediu, recomenda.</h2><p className="mx-auto mt-3 max-w-2xl text-muted-foreground">Espaço preparado para avaliações reais dos clientes da Mini Mundo Maquetes.</p><div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden"><div className="flex w-max animate-review-marquee gap-5">{[1,2,3,4,5,6].map((i)=><div key={i} className="w-[82vw] max-w-md shrink-0 rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg"><div className="text-2xl tracking-[0.2em] text-yellow-400">★★★★★</div><p className="mt-5 text-lg font-semibold leading-8 text-slate-700">“Espaço para uma avaliação real e detalhada do cliente, contando como foi o atendimento, a produção e o resultado da maquete.”</p><div className="mt-5 flex flex-col items-center"><div className="grid h-14 w-14 place-items-center rounded-full bg-slate-100 text-muted-foreground"><UserRound size={27}/></div><span className="mt-3 text-sm font-extrabold text-slate-900">{["Mariana Alves","Carlos Henrique","Fernanda Martins","Rafael Oliveira","Juliana Costa","André Souza"][i-1]}</span><span className="text-sm font-semibold text-muted-foreground">Cliente Mini Mundo</span></div></div>)}</div></div><a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18}/></a></div></section>
+      <section id="avaliacoes" className="scroll-mt-24 overflow-hidden bg-[#f7fbff] py-8 lg:py-12">
+        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+          <p className="font-extrabold uppercase tracking-[0.18em] text-blue-600">Avaliações</p>
+          <h2 className="mt-2 text-3xl font-black tracking-normal sm:text-4xl">Quem já pediu, recomenda.</h2>
+          <p className="mx-auto mt-3 flex items-center justify-center gap-2 text-muted-foreground">
+            <GoogleG size={20} /> Avaliações reais de clientes no Google
+          </p>
+          <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-blue-700 hover:underline">
+            Ver perfil e avaliações no Google <ArrowRight size={15} />
+          </a>
+          <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden">
+            <div className="flex w-max animate-review-marquee gap-5">
+              {[...googleReviews, ...googleReviews].map((r, i) => (
+                <div key={i} className="flex w-[82vw] max-w-md shrink-0 flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xl tracking-[0.2em] text-yellow-400">★★★★★</span>
+                    <GoogleG size={22} />
+                  </div>
+                  <p className="mt-4 text-left text-base leading-7 text-slate-700">“{r.text}”</p>
+                  <div className="mt-5 flex flex-col items-center border-t border-slate-100 pt-4">
+                    <div className="grid h-12 w-12 place-items-center rounded-full bg-blue-100 text-sm font-black text-blue-700">
+                      {r.name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase()}
+                    </div>
+                    <span className="mt-2 text-sm font-extrabold text-slate-900">{r.name}</span>
+                    <span className="text-xs font-semibold text-muted-foreground">Avaliação no Google · {r.time}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mx-auto mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-extrabold text-white shadow-lg hover:bg-blue-700">Quero encomendar minha maquete <MessageCircle size={18} /></a>
+        </div>
+      </section>
 
       <section className="bg-surface py-8">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
