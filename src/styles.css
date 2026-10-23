@@ -53,3 +53,8 @@ button,a { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   .animate-maquette-marquee, .animate-info-marquee, .animate-review-marquee { animation: none; }
 }
+
+@keyframes gallery-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.animate-gallery-marquee { animation: gallery-marquee 52s linear infinite; }
+.animate-gallery-marquee:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .animate-gallery-marquee { animation: none; } }
