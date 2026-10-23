@@ -55,6 +55,5 @@ button,a { -webkit-tap-highlight-color: transparent; }
 }
 
 @keyframes gallery-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.animate-gallery-marquee { animation: gallery-marquee 52s linear infinite; }
-.animate-gallery-marquee:hover { animation-play-state: paused; }
+.animate-gallery-marquee { animation: gallery-marquee 180s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .animate-gallery-marquee { animation: none; } }
