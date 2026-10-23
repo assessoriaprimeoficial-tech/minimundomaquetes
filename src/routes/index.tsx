@@ -317,9 +317,9 @@ function Index() {
                     </div>
                     <div className="overflow-hidden">
                       <div className="flex w-max gap-4 animate-maquette-marquee">
-                        {[...planCarousels[i], ...planCarousels[i]].map((src, carouselIndex) => (
+                        {[...(planCarousels[i] ?? []), ...(planCarousels[i] ?? [])].map((src, carouselIndex) => (
                           <div key={carouselIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
-                            {planCarousels[i].length > 0 ? (
+                            {(planCarousels[i]?.length ?? 0) > 0 ? (
                               <img
                                 src={src}
                                 alt={`Foto da maquete ${p.name.toLowerCase()}`}
