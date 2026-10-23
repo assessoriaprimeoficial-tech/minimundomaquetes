@@ -146,6 +146,9 @@ const googleReviews = [
 
 const GOOGLE_REVIEWS_URL = "https://share.google/25eE2iOieYlBJZKgc";
 
+// As avaliações com textos mais longos aparecem primeiro no carrossel.
+const googleReviewsSorted = [...googleReviews].sort((a, b) => b.text.length - a.text.length);
+
 function GoogleG({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
@@ -557,7 +560,7 @@ function Index() {
           </a>
           <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden">
             <div className="flex w-max animate-review-marquee gap-5">
-              {[...googleReviews, ...googleReviews].map((r, i) => (
+              {[...googleReviewsSorted, ...googleReviewsSorted].map((r, i) => (
                 <div key={i} className="flex h-[25rem] w-[82vw] max-w-md shrink-0 flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg">
                   <div className="flex items-center justify-between">
                     <span className="text-xl tracking-[0.2em] text-yellow-400">★★★★★</span>
