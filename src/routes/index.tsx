@@ -105,18 +105,43 @@ const faqs = [
 ];
 
 const googleReviews = [
-  { name: "Ana Beatriz Nunes", time: "2 anos atrás", text: "Fiquei surpresa com o trabalho que me foi entregue. Cheio de detalhes, e perfeito. Eu precisava de uma maquete que retratasse o clima da Inglaterra, e ele fez de forma claríssima. Super recomendo. Procurei-o com uns 15 dias de antecedência, e antes da data marcada, ele já estava com a maquete pronta. Muito obrigada pelo profissionalismo." },
-  { name: "Karla Oliveira", time: "2 meses atrás", text: "Recomendo muito o trabalho do Sr. Adilson! Ele confeccionou uma maquete escolar para o 7º ano e o resultado ficou simplesmente perfeito. Tudo foi feito com muito capricho, dedicação e atenção aos detalhes. Ele entregou antes do prazo." },
-  { name: "Daniely Rodrigues", time: "uma semana atrás", text: "Trabalho maravilhoso nos mínimos detalhes! Impecável! Ótimo atendimento e entrega super rápida... Amei e super indico!!!" },
-  { name: "Miguel Miguel", time: "um mês atrás", text: "Super-profissional. Precisei para 2 dias, fechamos e ele fez um trabalho muito bonito, rápido e em um preço justo." },
+  { name: "Daniely Rodrigues", time: "1 semana atrás", text: "Trabalho maravilhoso nos mínimos detalhes! Impecável! Ótimo atendimento e entrega super rápida... Amei e super indico!!!" },
+  { name: "Vera Lucia", time: "1 mês atrás", text: "Fiz para meu filho e ficou ótima! É super atencioso também." },
+  { name: "Thiago Silva", time: "1 mês atrás", text: "Perfeito trabalho." },
+  { name: "Miguel Miguel", time: "1 mês atrás", text: "Super-profissional. Precisei para 2 dias, fechamos e ele fez um trabalho muito bonito, rápido e em um preço justo." },
   { name: "Roberta Medeiros", time: "2 meses atrás", text: "Solicitei a maquete para um trabalho escolar que eu realmente não teria habilidade para fazer, e além de fazer muito rápido, chegou bem fidedigna com a minha necessidade. Super recomendo!" },
-  { name: "Mauro Decote", time: "4 meses atrás", text: "Atendeu demais minhas expectativas, muito atento aos detalhes, me surpreendeu, gostei muito e recomendo." },
-  { name: "Daiana Roberta Salgado", time: "um ano atrás", text: "Super indico o trabalho do Sr. Adilson. A maquete ficou perfeita... ele dá uma atenção imensa, cumpre com dia e horário. Podem contactá-lo sem medo!" },
-  { name: "Ivan Kalil", time: "um ano atrás", text: "Tirei 10 no meu trabalho graças à maquete do Adilson." },
-  { name: "Claudete Cardoso", time: "2 anos atrás", text: "Gente, que trabalho mais que perfeito! Se eu pudesse daria 10 estrelas!" },
-  { name: "Claudio Luiz Silva", time: "um ano atrás", text: "Encomendei com o Sr. Adilson uma maquete do bairro Méier e ficou muito 🔝! Atencioso e confecção de ótima qualidade. Recomendo!!!" },
-  { name: "Ana Santanna", time: "um ano atrás", text: "Quero agradecer de coração por ter feito minha maquete da faculdade com tanto capricho e dedicação. O resultado ficou incrível, superou todas as minhas expectativas!" },
-  { name: "Marcelo Barros", time: "2 anos atrás", text: "Excelente profissional, já fiz várias maquetes com ele, sempre entrega no prazo e os trabalhos são muito bem feitos." },
+  { name: "Karla Oliveira", time: "2 meses atrás", text: "Recomendo muito o trabalho do Sr. Adilson! Ele confeccionou uma maquete escolar para o 7º ano e o resultado ficou simplesmente perfeito. Tudo foi feito com muito capricho, dedicação e atenção aos detalhes. Ele entregou antes do prazo, foi" },
+  { name: "Carolina Mendes", time: "2 meses atrás", text: "Muito bom e rápido! Parabéns." },
+  { name: "Mauro Decote", time: "4 meses atrás", text: "Atendeu demais minhas expectativas, muito atento aos detalhes, me surpreendeu, gostei muito e recomendo 💪🏼" },
+  { name: "Elidio Wilson", time: "6 meses atrás", text: "Trabalho com excelência e rapidez. Muito profissionalismo! Super recomendo." },
+  { name: "Marlon Lins Severino", time: "6 meses atrás", text: "Recomendo a todos. Muito prestativo e rápido na entrega." },
+  { name: "Gleice", time: "11 meses atrás", text: "Seu Adilson faz um excelente trabalho. Recomendo. Fez a maquete que foi solicitada e entregou antes do prazo. Parabéns pelo compromisso e capricho nos detalhes." },
+  { name: "Bruna Conceição", time: "11 meses atrás", text: "Trabalho maravilhoso!! A maquete ficou linda! Muito obrigada!" },
+  { name: "Daniela de Farias Teixeira Barreto", time: "11 meses atrás", text: "Fez exatamente do jeito que eu pedi. Estou satisfeita. Entregou antes do prazo." },
+  { name: "Grazielle Cabral", time: "11 meses atrás", text: "Amei o trabalho." },
+  { name: "Daiana Roberta Salgado", time: "1 ano atrás", text: "Super indico o trabalho do Sr. Adilson. Maquete ficou perfeita... Ele dá uma atenção imensa, cumpre com dia e horário. Podem contactá-lo sem medo! O Sr. está de parabéns!" },
+  { name: "Ana Santanna", time: "1 ano atrás", text: "Quero agradecer de coração por ter feito minha maquete da faculdade com tanto capricho e dedicação. O resultado ficou incrível, superou todas as minhas expectativas! Sei que deu trabalho, e por isso valorizo ainda mais o cuidado e o" },
+  { name: "Priscilla Muniz", time: "1 ano atrás", text: "Encontrei o Sr. Adilson pela OLX e digo sempre a ele que ele e a Dona Karla são dois anjos na minha vida, eles fazem as melhores maquetes que já vi na vida, trabalho caprichado, feito com toda dedicação e carinho" },
+  { name: "Michelle Godinho da Silva", time: "1 ano atrás", text: "Atendimento nota mil, maquete maravilhosa, bem detalhada, bem feita. Com certeza farei mais vezes. Muito obrigada pelo ótimo serviço e atendimento. Maquete tá linda demais, amei!" },
+  { name: "Eduarda Moreeeuw", time: "1 ano atrás", text: "Me ajudou muitoo com minha maquete da escola, super atencioso, valor excelente, mandou foto do processo, confiem de olhos fechados, amei o cuidado." },
+  { name: "Bruna Vitoria", time: "1 ano atrás", text: "Ótima maquete, de qualidade e é confiável, muito linda. Ótimo trabalho, estou muito satisfeita 🙏🏻🙏🏻" },
+  { name: "Claudio Luiz Silva", time: "1 ano atrás", text: "Encomendei com o Sr. Adilson uma maquete do bairro Méier e ficou muito 🔝! Atencioso e confecção de ótima qualidade. Recomendo!!!" },
+  { name: "Alice Silva", time: "1 ano atrás", text: "Estou muito feliz com o trabalho do Adilson. O trabalho foi feito do jeito que pedimos e muito rápido foi feito! Tudo muito bonito e com capricho!! Super indico!!!" },
+  { name: "Gabrielle Campos", time: "1 ano atrás", text: "Amei o trabalho, super recomendo, profissional excelente! Podem contratar sem medo!" },
+  { name: "Adriana Grativol", time: "1 ano atrás", text: "Fiz p minha filha, e ficou ótima. Excelente trabalho. Muito obrigada." },
+  { name: "Vanderlei Barbosa", time: "1 ano atrás", text: "Trabalho de muita qualidade. Muito feliz na contratação." },
+  { name: "Ivan Kalil", time: "1 ano atrás", text: "Tirei 10 no meu trabalho graças à maquete de Adilson." },
+  { name: "Marcelle Santos", time: "1 ano atrás", text: "Trabalho muito bem feito. Recomendo!!" },
+  { name: "Karla Cardoso", time: "1 ano atrás", text: "O trabalho é perfeito, parabéns." },
+  { name: "Vitoria Rozane", time: "1 ano atrás", text: "Muito bommmm." },
+  { name: "Ana Beatriz Nunes", time: "2 anos atrás", text: "Fiquei surpresa com o trabalho que me foi entregue. Cheio de detalhes, e perfeito. Eu precisava de uma maquete que retratasse o clima da Inglaterra, e ele fez de forma claríssima. Super recomendo. Procurei-o com uns 15 dias de antecedência, e antes da data marcada, ele já estava com a maquete pronta. Muito obrigada pelo profissionalismo." },
+  { name: "João Fares", time: "2 anos atrás", text: "A maquete ficou uma obra de arte e o senhor Adilson foi muito atencioso e dedicado." },
+  { name: "Marcelo Barros", time: "2 anos atrás", text: "Excelente profissional, já fiz várias maquetes com ele, sempre entrega no prazo e os trabalhos são muito bem feitos. Pra quem tem filho na escola e não tem tempo e nem jeito pra fazer estes tipos de trabalho, super recomendo" },
+  { name: "Andréia Rocha Ribeiro Henriques", time: "2 anos atrás", text: "Excelente profissional e caprichoso! Minha maquete ficou perfeita!!" },
+  { name: "Tata", time: "2 anos atrás", text: "Ótimo profissional, super simpático ele e a esposa, fizeram um ótimo trabalho ❤️" },
+  { name: "Solange Simões", time: "2 anos atrás", text: "Excelente trabalho.. entrega prazo certo e trabalho maravilhoso." },
+  { name: "Claudete Cardoso", time: "2 anos atrás", text: "Gente, que trabalho mais que perfeito! Se eu pudesse, daria 10 estrelas!" },
+  { name: "Claudia Fimino Alves", time: "2 anos atrás", text: "O trabalho é perfeito, gostei muito." },
 ];
 
 const GOOGLE_REVIEWS_URL = "https://share.google/25eE2iOieYlBJZKgc";
@@ -533,13 +558,13 @@ function Index() {
           <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden">
             <div className="flex w-max animate-review-marquee gap-5">
               {[...googleReviews, ...googleReviews].map((r, i) => (
-                <div key={i} className="flex w-[82vw] max-w-md shrink-0 flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg">
+                <div key={i} className="flex h-[25rem] w-[82vw] max-w-md shrink-0 flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg">
                   <div className="flex items-center justify-between">
                     <span className="text-xl tracking-[0.2em] text-yellow-400">★★★★★</span>
                     <GoogleG size={22} />
                   </div>
-                  <p className="mt-4 text-left text-base leading-7 text-slate-700">“{r.text}”</p>
-                  <div className="mt-5 flex flex-col items-center border-t border-slate-100 pt-4">
+                  <p className="mt-4 line-clamp-6 flex-1 text-left text-base leading-7 text-slate-700">“{r.text}”</p>
+                  <div className="mt-auto flex flex-col items-center border-t border-slate-100 pt-4">
                     <div className="grid h-12 w-12 place-items-center rounded-full bg-blue-100 text-sm font-black text-blue-700">
                       {r.name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase()}
                     </div>
