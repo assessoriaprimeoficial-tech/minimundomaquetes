@@ -12,3 +12,4 @@
 - Store page media as Lovable Assets JSON pointers; keep only the small favicon in public so browser icon requests work directly.
 - Put share-image metadata on the leaf route using an absolute production URL and a share-sized rendition of the visible brand image so link previews stay consistent.
 - Measure marquee track widths with ResizeObserver and derive duration from a shared pixels-per-second rate so different image counts retain equal scrolling speed.
+- Build the gallery photo list from the files actually present in public/galeria at build time (vite define), never from a fixed filename range, so the page can't show a photo that isn't in the project.

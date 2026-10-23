@@ -7,3 +7,4 @@
 - [x] Add supplied logo to page and link sharing.
 - [x] Use logo-derived favicon and supplied floating WhatsApp image.
 - [x] Verify images, contact link, and page load.
+- [x] Add eight supplied photos to the Mega carousel and slow the gallery to the shared carousel speed.
