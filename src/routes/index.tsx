@@ -7,6 +7,22 @@ import whatsappAsset from "@/assets/whatsapp.png.asset.json";
 import simpleStadium3 from "@/assets/simples-estadio-3.png.asset.json";
 import simpleStadium4 from "@/assets/simples-estadio-4.png.asset.json";
 import simpleStadium5 from "@/assets/simples-estadio-5.png.asset.json";
+import grande01 from "@/assets/grande-01.jpeg.asset.json";
+import grande02 from "@/assets/grande-02.jpeg.asset.json";
+import grande03 from "@/assets/grande-03.jpeg.asset.json";
+import grande04 from "@/assets/grande-04.jpeg.asset.json";
+import grande05 from "@/assets/grande-05.jpeg.asset.json";
+import grande06 from "@/assets/grande-06.jpeg.asset.json";
+import grande07 from "@/assets/grande-07.jpeg.asset.json";
+import grande08 from "@/assets/grande-08.jpeg.asset.json";
+import grande09 from "@/assets/grande-09.jpeg.asset.json";
+import grande10 from "@/assets/grande-10.jpeg.asset.json";
+import grande11 from "@/assets/grande-11.jpeg.asset.json";
+import grande12 from "@/assets/grande-12.jpeg.asset.json";
+import grande13 from "@/assets/grande-13.jpeg.asset.json";
+import grande14 from "@/assets/grande-14.jpeg.asset.json";
+import grande15 from "@/assets/grande-15.jpeg.asset.json";
+import grande16 from "@/assets/grande-16.jpeg.asset.json";
 import {
   ArrowRight,
   ChevronDown,
@@ -115,22 +131,22 @@ const carouselImages = {
     "/maquetes/comum/0c45016a-17b6-43f4-aa91-3a4e11640d99.jpg",
     "/maquetes/comum/73de6da1-3b08-4dba-aec5-993b9e71ba78.jpg"],
   grande: [
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.53 (1).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.53 (2).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.54 (1).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.54 (2).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.54.jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.56 (1).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.56.jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.57 (1).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.57 (2).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.57.jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.58 (1).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.58.jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.55 (1).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.55 (2).jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.55.jpeg",
-    "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.53.jpeg"
+    grande01.url,
+    grande02.url,
+    grande03.url,
+    grande04.url,
+    grande05.url,
+    grande06.url,
+    grande07.url,
+    grande08.url,
+    grande09.url,
+    grande10.url,
+    grande11.url,
+    grande12.url,
+    grande13.url,
+    grande14.url,
+    grande15.url,
+    grande16.url,
   ],
 
   mega: [
@@ -455,7 +471,7 @@ function Index() {
                           <div key={carouselIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
                             {(i === 0 || i === 1 || i === 2 || i === 3) ? (
                               <img
-                                src={src.split("/").map((segment) => encodeURIComponent(segment)).join("/")}
+                                src={src.startsWith("/__l5e/assets-v1/") ? src : src.split("/").map((segment) => encodeURIComponent(segment)).join("/")}
                                 alt={`Foto da maquete ${p.name.toLowerCase()}`}
                                 loading={carouselIndex < 3 ? "eager" : "lazy"}
                                 decoding="async"
