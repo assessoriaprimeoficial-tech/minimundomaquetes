@@ -12,3 +12,5 @@
 - Store page media as Lovable Assets JSON pointers; keep only the small favicon in public so browser icon requests work directly.
 - Put share-image metadata on the leaf route using an absolute production URL and a share-sized rendition of the visible brand image so link previews stay consistent.
 - Measure marquee track widths with ResizeObserver and derive duration from a shared pixels-per-second rate so different image counts retain equal scrolling speed.
+- The gallery photo list is generated at build time from the real files in public/galeria (vite.config.ts define __GALLERY_PHOTOS__); never hardcode a numbered range, because the files have gaps.
+- Maquette carousel photos live as real files under public/maquetes/<nivel>/; each carousel list is ordered so photos sharing the most common dimensions appear first.
