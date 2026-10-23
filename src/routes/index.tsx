@@ -73,7 +73,8 @@ const carouselImages = {
     "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.58 (1).jpeg",
     "/maquetes/grande/WhatsApp Image 2026-10-21 at 23.41.58.jpeg"
   ],
-};
+
+  mega: ["/maquetes/mega/image.png"],};
 
 const galleryImages = Array.from({ length: 120 }, (_, i) => `/galeria/MiniMundo_${String(i + 1).padStart(3, "0")}.jpg`);
 
@@ -323,9 +324,9 @@ function Index() {
                     </div>
                     <div className="overflow-hidden">
                       <div className="flex w-max gap-4 animate-maquette-marquee">
-                        {[...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : i === 2 ? carouselImages.grande : []), ...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : i === 2 ? carouselImages.grande : [])].map((src, carouselIndex) => (
+                        {[...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : i === 2 ? carouselImages.grande : i === 3 ? carouselImages.mega : []), ...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : i === 2 ? carouselImages.grande : i === 3 ? carouselImages.mega : [])].map((src, carouselIndex) => (
                           <div key={carouselIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
-                            {(i === 0 || i === 1 || i === 2) ? (
+                            {(i === 0 || i === 1 || i === 2 || i === 3) ? (
                               <img
                                 src={src}
                                 alt={`Foto da maquete ${p.name.toLowerCase()}`}
@@ -391,7 +392,6 @@ function Index() {
               ))}
             </div>
           </div>
-          <p className="mt-3 text-center text-sm font-semibold text-muted-foreground">As fotos deslizam automaticamente. As 120 fotos são carregadas de <code>public/galeria/</code> (MiniMundo_001.jpg até MiniMundo_120.jpg).</p>
         </div>
       </section>
 
