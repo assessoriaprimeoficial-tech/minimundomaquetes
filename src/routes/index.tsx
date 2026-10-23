@@ -319,9 +319,9 @@ function Index() {
                     </div>
                     <div className="overflow-hidden">
                       <div className="flex w-max gap-4 animate-maquette-marquee">
-                        {[...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : galleryImages), ...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : galleryImages)].map((src, carouselIndex) => (
+                        {[...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : []), ...(i === 0 ? carouselImages.simples : i === 1 ? carouselImages.comum : [])].map((src, carouselIndex) => (
                           <div key={carouselIndex} className="min-w-[82vw] shrink-0 sm:min-w-[420px]">
-                            {(i === 0 || i === 1 || galleryImages.length > 0) ? (
+                            {(i === 0 || i === 1) ? (
                               <img
                                 src={src}
                                 alt={`Foto da maquete ${p.name.toLowerCase()}`}
