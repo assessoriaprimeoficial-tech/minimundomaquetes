@@ -422,11 +422,15 @@ function Index() {
                 <div className="block">
                   <div className="relative mx-auto max-w-4xl">
                     <div
-                      aria-hidden="true"
-                      className="absolute -inset-4 rounded-[2.4rem] bg-cover bg-center sm:-inset-6"
-                      style={{ backgroundImage: 'url("' + p.bg + '")' }}
-                    />
-                    <div className="relative rounded-[2rem] border border-slate-200 bg-white/95 p-7 sm:p-9">
+                      className="relative rounded-[2rem] border border-slate-200 bg-cover bg-center bg-no-repeat p-7 sm:p-9"
+                      style={{
+                        backgroundImage:
+                          'linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.92)), url("' +
+                          p.bg +
+                          '")',
+                      }}
+                    >
+
                     <div className={"absolute inset-x-0 top-0 h-2 rounded-t-[2rem] " + p.color} />
                     <span className="text-sm font-extrabold text-muted-foreground">MODELO 0{i + 1}</span>
                     <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
@@ -440,20 +444,21 @@ function Index() {
                             : "Modelo de maior impacto, pensado para projetos expressivos e detalhados, como usinas, construções, mar, navios, plataformas e outros trabalhos especiais."}
                     </p>
                     <div className="mt-6 flex flex-col gap-3">
-                      <div className="rounded-2xl bg-slate-50 p-4">
+                      <div className="rounded-2xl bg-white/80 p-4">
+
                         <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
                           Tamanho
                         </span>
                         <strong className="mt-1 block text-lg">{p.size}</strong>
                       </div>
-                      <div className="rounded-2xl bg-slate-50 p-4">
+                      <div className="rounded-2xl bg-white/80 p-4">
                         <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
                           Indicado para
                         </span>
                         <strong className="mt-1 block text-base leading-6">{p.audience}</strong>
                       </div>
                     </div>
-                    <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-4">
+                    <div className="mt-5 rounded-2xl border border-blue-100 bg-white/85 p-4">
                       <span className="text-sm font-bold uppercase tracking-wider text-brand">
                         Média de valor
                       </span>
