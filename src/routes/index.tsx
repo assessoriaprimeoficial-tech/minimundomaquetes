@@ -26,7 +26,7 @@ import grande16 from "@/assets/grande-16.jpeg.asset.json";
 import isoporSimples from "@/assets/isopor-1.jpg.asset.json";
 import isoporComum from "@/assets/isopor-2.jpg.asset.json";
 import isoporGrande from "@/assets/isopor-3.jpg.asset.json";
-import isoporMega from "@/assets/isopor-4.jpg.asset.json";
+import isoporMega from "@/assets/isopor-5.jpg.asset.json";
 import heroObraAsset from "@/assets/hero-obra.jpg.asset.json";
 import {
   ArrowRight,
