@@ -445,21 +445,22 @@ function Index() {
                             : "Modelo de maior impacto, pensado para projetos expressivos e detalhados, como usinas, construções, mar, navios, plataformas e outros trabalhos especiais."}
                     </p>
                     <div className="mt-6 flex flex-col gap-3">
-                      <div className="rounded-2xl bg-white/80 p-4">
+                      <div className="rounded-2xl bg-white p-4">
+
 
                         <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
                           Tamanho
                         </span>
                         <strong className="mt-1 block text-lg">{p.size}</strong>
                       </div>
-                      <div className="rounded-2xl bg-white/80 p-4">
+                      <div className="rounded-2xl bg-white p-4">
                         <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
                           Indicado para
                         </span>
                         <strong className="mt-1 block text-base leading-6">{p.audience}</strong>
                       </div>
                     </div>
-                    <div className="mt-5 rounded-2xl border border-blue-100 bg-white/85 p-4">
+                    <div className="mt-5 rounded-2xl border border-blue-100 bg-white p-4">
                       <span className="text-sm font-bold uppercase tracking-wider text-brand">
                         Média de valor
                       </span>
