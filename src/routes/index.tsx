@@ -367,7 +367,7 @@ function Index() {
               ].map(([a, b]) => (
                 <div
                   key={a}
-                  className="min-w-0 rounded-2xl border border-slate-100 bg-white/80 px-2 py-4 shadow-sm sm:px-4"
+                  className="min-w-0 rounded-2xl border border-[#e3ded2] bg-[#f1eee5] px-2 py-4 shadow-sm sm:px-4"
                 >
                   <b className="block text-xl font-black text-blue-700">{a}</b>
                   <span className="text-sm font-semibold text-muted-foreground">{b}</span>
@@ -402,7 +402,7 @@ function Index() {
             {plans.map((p, i) => (
               <article key={p.name} className="overflow-visible bg-transparent text-center">
                 <div className="block">
-                  <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
+                  <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-[#e3ded2] bg-[#f1eee5] p-7 shadow-sm sm:p-9">
                     <div className={"absolute inset-x-0 top-0 h-2 " + p.color} />
                     <span className="text-sm font-extrabold text-muted-foreground">MODELO 0{i + 1}</span>
                     <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
@@ -578,7 +578,7 @@ function Index() {
               ].map(([n, t, d]) => (
                 <div
                   key={n}
-                  className="rounded-3xl border border-orange-100 bg-white p-6 text-center shadow-sm hover:-translate-y-0.5 hover:shadow-md"
+                  className="rounded-3xl border border-[#e3ded2] bg-[#f1eee5] p-6 text-center shadow-sm hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <span className="text-3xl font-black text-blue-600">{n}</span>
                   <h3 className="mt-4 font-black">{t}</h3>
@@ -649,7 +649,7 @@ function Index() {
           <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden">
             <div className="flex w-max animate-review-marquee gap-5">
               {[...googleReviewsSorted, ...googleReviewsSorted].map((r, i) => (
-                <div key={i} className="flex h-[25rem] w-[82vw] max-w-md shrink-0 flex-col rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg">
+                <div key={i} className="flex h-[25rem] w-[82vw] max-w-md shrink-0 flex-col rounded-3xl border border-[#e3ded2] bg-[#f1eee5] p-6 text-center shadow-lg">
                   <div className="flex items-center justify-between">
                     <span className="text-xl tracking-[0.2em] text-yellow-400">★★★★★</span>
                     <GoogleG size={22} />
