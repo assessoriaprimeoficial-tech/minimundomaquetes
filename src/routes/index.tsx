@@ -430,6 +430,7 @@ function Index() {
                     >
 
                     <div className={"absolute inset-x-0 top-0 h-2 rounded-t-[2rem] " + p.color} />
+                    <div className="rounded-2xl bg-white p-5">
                     <span className="text-sm font-extrabold text-muted-foreground">MODELO 0{i + 1}</span>
                     <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
                     <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-muted-foreground">
@@ -441,6 +442,7 @@ function Index() {
                             ? "Modelo maior e mais expressivo, indicado para alunos acima de 17 anos, cursos e projetos que precisam de presença visual."
                             : "Modelo de maior impacto, pensado para projetos expressivos e detalhados, como usinas, construções, mar, navios, plataformas e outros trabalhos especiais."}
                     </p>
+                    </div>
                     <div className="mt-6 flex flex-col gap-3">
                       <div className="rounded-2xl bg-white p-4">
 
