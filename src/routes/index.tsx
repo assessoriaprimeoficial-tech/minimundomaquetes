@@ -23,6 +23,10 @@ import grande13 from "@/assets/grande-13.jpeg.asset.json";
 import grande14 from "@/assets/grande-14.jpeg.asset.json";
 import grande15 from "@/assets/grande-15.jpeg.asset.json";
 import grande16 from "@/assets/grande-16.jpeg.asset.json";
+import isoporSimples from "@/assets/isopor-1.jpg.asset.json";
+import isoporComum from "@/assets/isopor-2.jpg.asset.json";
+import isoporGrande from "@/assets/isopor-3.jpg.asset.json";
+import isoporMega from "@/assets/isopor-4.jpg.asset.json";
 import {
   ArrowRight,
   ChevronDown,
@@ -44,6 +48,7 @@ const plans = [
     audience: "Alunos de 6 a 10 anos",
     price: "R$ 180 a R$ 220",
     color: "bg-blue-600",
+    bg: isoporSimples.url,
   },
   {
     name: "Comum",
@@ -51,6 +56,7 @@ const plans = [
     audience: "Alunos de 12 a 17 anos",
     price: "R$ 250 a R$ 280",
     color: "bg-orange-500",
+    bg: isoporComum.url,
   },
   {
     name: "Grande",
@@ -58,6 +64,7 @@ const plans = [
     audience: "Alunos acima de 17 anos e cursos",
     price: "R$ 350 a R$ 450",
     color: "bg-red-500",
+    bg: isoporGrande.url,
   },
   {
     name: "Mega",
@@ -65,6 +72,7 @@ const plans = [
     audience: "Projetos expressivos e detalhados",
     price: "R$ 450 a R$ 750",
     color: "bg-red-600",
+    bg: isoporMega.url,
   },
 ];
 // Fotos ordenadas para que as de mesmo tamanho apareçam primeiro em cada carrossel.
@@ -402,7 +410,14 @@ function Index() {
             {plans.map((p, i) => (
               <article key={p.name} className="overflow-visible bg-transparent text-center">
                 <div className="block">
-                  <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
+                  <div
+                    className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9"
+                    style={{
+                      backgroundImage: 'linear-gradient(to bottom, rgba(255,255,255,0.82), rgba(255,255,255,0.94)), url("' + p.bg + '")',
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
                     <div className={"absolute inset-x-0 top-0 h-2 " + p.color} />
                     <span className="text-sm font-extrabold text-muted-foreground">MODELO 0{i + 1}</span>
                     <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
