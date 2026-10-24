@@ -27,6 +27,7 @@ import isoporSimples from "@/assets/isopor-1.jpg.asset.json";
 import isoporComum from "@/assets/isopor-2.jpg.asset.json";
 import isoporGrande from "@/assets/isopor-3.jpg.asset.json";
 import isoporMega from "@/assets/isopor-4.jpg.asset.json";
+import heroObraAsset from "@/assets/hero-obra.jpg.asset.json";
 import {
   ArrowRight,
   ChevronDown,
@@ -350,6 +351,15 @@ function Index() {
               </strong>
               , com diferentes tamanhos e níveis de detalhe.
             </p>
+            <div className="mt-6 w-full max-w-3xl">
+              <img
+                src={heroObraAsset.url}
+                alt="Maquete de obra em andamento com guindaste, caminhão e operários"
+                width={1600}
+                height={1200}
+                className="w-full rounded-3xl border border-slate-200 bg-white object-cover shadow-2xl"
+              />
+            </div>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href={WHATSAPP}
