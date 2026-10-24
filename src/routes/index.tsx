@@ -420,15 +420,14 @@ function Index() {
             {plans.map((p, i) => (
               <article key={p.name} className="overflow-visible bg-transparent text-center">
                 <div className="block">
-                  <div
-                    className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-9"
-                    style={{
-                      backgroundImage: 'linear-gradient(to bottom, rgba(255,255,255,0.82), rgba(255,255,255,0.94)), url("' + p.bg + '")',
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
-                    <div className={"absolute inset-x-0 top-0 h-2 " + p.color} />
+                  <div className="relative mx-auto max-w-4xl">
+                    <div
+                      aria-hidden="true"
+                      className="absolute -inset-4 rounded-[2.4rem] bg-cover bg-center sm:-inset-6"
+                      style={{ backgroundImage: 'url("' + p.bg + '")' }}
+                    />
+                    <div className="relative rounded-[2rem] border border-slate-200 bg-white/95 p-7 sm:p-9">
+                    <div className={"absolute inset-x-0 top-0 h-2 rounded-t-[2rem] " + p.color} />
                     <span className="text-sm font-extrabold text-muted-foreground">MODELO 0{i + 1}</span>
                     <h3 className="mt-4 text-3xl font-black">{p.name}</h3>
                     <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-muted-foreground">
@@ -474,10 +473,11 @@ function Index() {
                       }
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-extrabold text-white shadow-md hover:bg-blue-700"
+                      className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-extrabold text-white hover:bg-blue-700"
                     >
                       Pedir orçamento para este modelo <ArrowRight size={16} />
                     </a>
+                    </div>
                   </div>
                   <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 border-y border-slate-200 bg-[#eaf5ff] px-0 py-8 text-center sm:px-7">
                     <div className="mx-auto mb-4 flex max-w-6xl items-center justify-center gap-4">
