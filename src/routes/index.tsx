@@ -424,11 +424,8 @@ function Index() {
                     <div
                       className="relative rounded-[2rem] border border-slate-200 bg-cover bg-center bg-no-repeat p-7 sm:p-9"
                       style={{
-                        backgroundImage:
-                          'linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.88)), url("' +
-                          p.bg +
+                        backgroundImage: 'url("' + p.bg + '")',
 
-                          '")',
                       }}
                     >
 
