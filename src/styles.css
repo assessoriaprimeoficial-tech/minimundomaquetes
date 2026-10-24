@@ -57,3 +57,80 @@ button,a { -webkit-tap-highlight-color: transparent; }
 @keyframes gallery-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .animate-gallery-marquee { animation: gallery-marquee 180s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .animate-gallery-marquee { animation: none; } }
+
+
+/* Identidade visual Mini Mundo: azul royal, amarelo e preto */
+:root {
+  --surface: #ffffff;
+  --ink: #101828;
+  --brand: #1746c8;
+  --brand-warm: #f4c400;
+  --muted-foreground: #475467;
+  --accent: #eef3ff;
+  --background: #f5f7fc;
+  --foreground: #101828;
+  --border: #dbe3f3;
+}
+body {
+  background: #f5f7fc;
+}
+.site-page {
+  background: #f5f7fc;
+}
+.site-page section:nth-of-type(even) {
+  background-color: #eef3ff;
+}
+.site-page section:nth-of-type(odd) {
+  background-color: #ffffff;
+}
+.site-page h1,
+.site-page h2,
+.site-page h3,
+.site-page h4 {
+  color: #101828;
+}
+.site-page a[class*="bg-orange-500"],
+.site-page button[class*="bg-orange-500"] {
+  background-color: #f4c400 !important;
+  color: #101828 !important;
+}
+.site-page a[class*="bg-orange-500"]:hover,
+.site-page button[class*="bg-orange-500"]:hover {
+  background-color: #dfb300 !important;
+}
+.site-page a[class*="bg-blue-600"],
+.site-page button[class*="bg-blue-600"] {
+  background-color: #1746c8 !important;
+}
+.site-page a[class*="bg-blue-600"]:hover,
+.site-page button[class*="bg-blue-600"]:hover {
+  background-color: #1038a8 !important;
+}
+.site-page [class*="text-orange-500"],
+.site-page [class*="text-orange-600"] {
+  color: #b38b00 !important;
+}
+.site-page [class*="border-orange-"] {
+  border-color: #f1d65b !important;
+}
+.site-page [class*="bg-orange-50"] {
+  background-color: #fff9d9 !important;
+}
+.site-page [class*="bg-blue-50"] {
+  background-color: #eaf0ff !important;
+}
+.site-page [class*="bg-blue-100"] {
+  background-color: #dbe6ff !important;
+}
+.site-page footer {
+  background: #101828 !important;
+  border-color: #25324b !important;
+}
+.site-page footer,
+.site-page footer p,
+.site-page footer span {
+  color: #dce5f7 !important;
+}
+.site-page footer strong {
+  color: #ffffff !important;
+}
