@@ -28,6 +28,10 @@ import isoporComum from "@/assets/isopor-2.jpg.asset.json";
 import isoporGrande from "@/assets/isopor-3.jpg.asset.json";
 import isoporMega from "@/assets/isopor-5.jpg.asset.json";
 import heroObraAsset from "@/assets/hero-obra.jpg.asset.json";
+import comumExtra1 from "@/assets/comum-extra-1.jpg.asset.json";
+import comumExtra2 from "@/assets/comum-extra-2.jpg.asset.json";
+import comumExtra3 from "@/assets/comum-extra-3.jpg.asset.json";
+import comumExtra4 from "@/assets/comum-extra-4.jpg.asset.json";
 import {
   ArrowRight,
   ChevronDown,
@@ -138,7 +142,11 @@ const carouselImages = {
     "/maquetes/comum/b0d6153f-35ae-4892-bdf3-6de7b4425df2.jpg",
     "/maquetes/comum/bcdb762a-d507-49d0-8aba-1eb395885ab7.jpg",
     "/maquetes/comum/0c45016a-17b6-43f4-aa91-3a4e11640d99.jpg",
-    "/maquetes/comum/73de6da1-3b08-4dba-aec5-993b9e71ba78.jpg"],
+    "/maquetes/comum/73de6da1-3b08-4dba-aec5-993b9e71ba78.jpg",
+    comumExtra1.url,
+    comumExtra2.url,
+    comumExtra3.url,
+    comumExtra4.url],
   grande: [
     grande01.url,
     grande02.url,
