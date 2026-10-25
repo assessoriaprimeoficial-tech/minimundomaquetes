@@ -10,13 +10,14 @@ import { readdirSync } from "node:fs";
 // Gallery list is built from the real files in public/galeria so the page never
 // references photos that do not exist.
 const imageExtensions = /\.(jpe?g|png|webp)$/i;
-const galleryPhotos = ["public/galeria", "public/galeria-novas"]
-  .flatMap((folder) =>
-    readdirSync(folder)
-      .filter((f) => imageExtensions.test(f))
-      .sort()
-      .map((f) => `/${folder.replace("public/", "")}/${f}`),
-  );
+const galleryPhotos = readdirSync("public/galeria")
+  .filter((f) => imageExtensions.test(f))
+  .sort()
+  .map((f) => `/galeria/${f}`);
+const galleryNovas = readdirSync("public/galeria-novas")
+  .filter((f) => imageExtensions.test(f))
+  .sort()
+  .map((f) => `/galeria-novas/${f}`);
 const isoporPhotos = readdirSync("public/galeria-isopor")
   .filter((f) => imageExtensions.test(f))
   .sort()
@@ -31,6 +32,7 @@ export default defineConfig({
   vite: {
     define: {
       __GALLERY_PHOTOS__: JSON.stringify(galleryPhotos),
+      __GALLERY_NOVAS__: JSON.stringify(galleryNovas),
       __ISOPOR_PHOTOS__: JSON.stringify(isoporPhotos),
     },
   },
