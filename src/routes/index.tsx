@@ -627,11 +627,9 @@ function Index() {
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               ["Leve e fácil de transportar", "Por ser leve, o isopor ajuda a montar maquetes que podem ser levadas para a escola, cursos e apresentações."],
-              ["Fácil de cortar e dar forma", "Pode ser recortado e montado para criar bases, construções e diferentes formas, conforme o projeto."],
               ["Acabamento personalizado", "O isopor pode receber revestimentos, pintura e outros elementos decorativos compatíveis com o projeto, para destacar os detalhes."],
               ["Bom para projetos escolares", "É bastante usado em maquetes didáticas porque permite representar conceitos e estruturas de maneira concreta e visual."],
               ["Cada projeto é planejado", "O tipo de isopor, a espessura, a estrutura e os acabamentos são definidos conforme o tamanho e o nível de detalhe solicitado."],
-              ["Cuidados e limitações", "O isopor pode amassar ou quebrar sob pressão e alguns solventes podem danificá-lo. Por isso, escolhemos materiais de acabamento adequados a cada trabalho."]
             ].map(([title, description]) => (
               <article key={title} className="rounded-2xl border border-[#e3dac9] bg-[#fffdf8] p-5 shadow-sm">
                 <h3 className="font-black text-slate-900">{title}</h3>
