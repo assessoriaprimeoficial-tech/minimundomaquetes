@@ -590,7 +590,7 @@ function Index() {
             <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">Maquetes feitas em isopor</h2>
             <p className="mt-4 text-base leading-8 text-slate-700 sm:text-lg">O isopor (poliestireno expandido — EPS) é um material leve, versátil e fácil de modelar. Ele permite criar volumes, relevos, paredes, terrenos e bases para representar ideias de forma visual em trabalhos escolares, feiras e projetos educativos.</p>
           </div>
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-7 grid max-w-5xl gap-4 sm:grid-cols-2">
             {[
               ["Leve e fácil de transportar", "Por ser leve, o isopor ajuda a montar maquetes que podem ser levadas para a escola, cursos e apresentações."],
               ["Acabamento personalizado", "O isopor pode receber revestimentos, pintura e outros elementos decorativos compatíveis com o projeto, para destacar os detalhes."],
