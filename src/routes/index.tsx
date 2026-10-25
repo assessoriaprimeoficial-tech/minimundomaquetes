@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/logo.png.asset.json";
 import shareLogoAsset from "@/assets/share-logo.jpg.asset.json";
@@ -298,6 +298,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const galleryDrag = useRef<{ startX: number; scrollLeft: number; dragging: boolean } | null>(null);
   useEffect(() => {
     const tracks = document.querySelectorAll<HTMLElement>(
       ".animate-maquette-marquee, .animate-info-marquee, .animate-review-marquee",
@@ -598,7 +599,11 @@ function Index() {
           </div>
           <p className="mt-5 text-sm font-bold text-blue-700">← Arraste para o lado para ver mais imagens →</p>
           <div className="relative left-1/2 mt-4 w-screen -translate-x-1/2">
-            <div className="gallery-manual-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 py-3 sm:px-8" aria-label="Galeria de maquetes. Arraste para o lado para ver mais imagens.">
+            <div className="gallery-manual-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 py-3 sm:px-8" aria-label="Galeria de maquetes. Arraste para o lado para ver mais imagens."
+              onPointerDown={(event) => { galleryDrag.current = { startX: event.clientX, scrollLeft: event.currentTarget.scrollLeft, dragging: true }; event.currentTarget.setPointerCapture(event.pointerId); }}
+              onPointerMove={(event) => { if (galleryDrag.current?.dragging) event.currentTarget.scrollLeft = galleryDrag.current.scrollLeft - (event.clientX - galleryDrag.current.startX); }}
+              onPointerUp={() => { if (galleryDrag.current) galleryDrag.current.dragging = false; }}
+              onPointerCancel={() => { if (galleryDrag.current) galleryDrag.current.dragging = false; }}>
               {galleryImages.map((src, i) => (
                 <div key={src} className="w-[78vw] max-w-[340px] shrink-0 snap-start sm:w-[360px]">
                   <img src={src} alt={`Foto de maquete ${i + 1} feita pela Mini Mundo Maquetes`} loading={i < 4 ? "eager" : "lazy"} decoding="async" draggable={false} className="h-[250px] w-full rounded-2xl border border-slate-200 bg-white object-cover shadow-sm sm:h-[290px]" />
