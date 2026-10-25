@@ -27,6 +27,16 @@ import isoporSimples from "@/assets/isopor-1.jpg.asset.json";
 import isoporComum from "@/assets/isopor-2.jpg.asset.json";
 import isoporGrande from "@/assets/isopor-3.jpg.asset.json";
 import isoporMega from "@/assets/isopor-5.jpg.asset.json";
+import isoporGaleria1 from "@/assets/isopor-galeria-1.jpg.asset.json";
+import isoporGaleria2 from "@/assets/isopor-galeria-2.jpg.asset.json";
+import isoporGaleria3 from "@/assets/isopor-galeria-3.jpg.asset.json";
+import isoporGaleria4 from "@/assets/isopor-galeria-4.jpg.asset.json";
+import isoporGaleria5 from "@/assets/isopor-galeria-5.jpg.asset.json";
+import isoporGaleria6 from "@/assets/isopor-galeria-6.jpg.asset.json";
+import isoporGaleria7 from "@/assets/isopor-galeria-7.jpg.asset.json";
+import isoporGaleria8 from "@/assets/isopor-galeria-8.jpg.asset.json";
+import isoporGaleria9 from "@/assets/isopor-galeria-9.jpg.asset.json";
+import isoporGaleria10 from "@/assets/isopor-galeria-10.jpg.asset.json";
 import heroObraAsset from "@/assets/hero-obra.jpg.asset.json";
 import comumExtra1 from "@/assets/comum-extra-1.jpg.asset.json";
 import comumExtra2 from "@/assets/comum-extra-2.jpg.asset.json";
@@ -226,7 +236,18 @@ const galleryImages: string[] = [
   ...__GALLERY_PHOTOS__.filter((src) => !src.startsWith("/galeria-novas/")),
   ...newGalleryPhotos,
 ];
-const isoporImages: string[] = ["/galeria-isopor/image.png"];
+const isoporImages: string[] = [
+  isoporGaleria1.url,
+  isoporGaleria2.url,
+  isoporGaleria3.url,
+  isoporGaleria4.url,
+  isoporGaleria5.url,
+  isoporGaleria6.url,
+  isoporGaleria7.url,
+  isoporGaleria8.url,
+  isoporGaleria9.url,
+  isoporGaleria10.url,
+];
 
 const faqs = [
   [

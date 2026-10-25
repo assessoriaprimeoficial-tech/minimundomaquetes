@@ -14,3 +14,4 @@
 - Measure marquee track widths with ResizeObserver and derive duration from a shared pixels-per-second rate so different image counts retain equal scrolling speed.
 - The gallery photo list is generated at build time from the real files in public/galeria (vite.config.ts define __GALLERY_PHOTOS__); never hardcode a numbered range, because the files have gaps.
 - Maquette carousel source photos live under public/maquetes/<nivel>; Grande and the four newest Comum photos use Lovable Assets pointers for deployment-safe URLs. Preserve the ordering with the most common dimensions first.
+- The "Maquetes feitas em isopor" carousel list is built from Lovable Assets pointers (src/assets/isopor-galeria-*.jpg.asset.json); public/galeria-isopor holds no photos, so never point that carousel at a public file.
