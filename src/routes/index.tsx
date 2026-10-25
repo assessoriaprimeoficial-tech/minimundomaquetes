@@ -574,7 +574,7 @@ function Index() {
               </article>
             ))}
           </div>
-          <div className="mt-5 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-base leading-7 text-orange-950">
+          <div className="mt-5 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-center text-base leading-7 text-orange-950">
             <strong>Materiais novos ou réplicas:</strong> quando o projeto exige somente materiais
             novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e
             combinado diretamente com o cliente.
