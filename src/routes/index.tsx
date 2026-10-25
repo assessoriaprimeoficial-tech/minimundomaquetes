@@ -879,9 +879,8 @@ function Index() {
           </div>
         </div>
       </footer>
-      <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp: 21 98526-1185" className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#20b858] py-2 pl-2 pr-4 text-sm font-extrabold text-white shadow-xl transition hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground">
-        <img src={whatsappAsset.url} alt="" width={48} height={48} className="h-12 w-12 object-contain" />
-        <span className="whitespace-nowrap">(21) 98526-1185</span>
+      <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp: 21 98526-1185" className="fixed bottom-5 right-5 z-50 block h-16 w-16 rounded-full transition hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground">
+        <img src={whatsappAsset.url} alt="WhatsApp" width={64} height={64} className="h-full w-full object-contain" />
       </a>
     </main>
   );
