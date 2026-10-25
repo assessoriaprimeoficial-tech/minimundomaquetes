@@ -57,3 +57,11 @@ button,a { -webkit-tap-highlight-color: transparent; }
 @keyframes gallery-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .animate-gallery-marquee { animation: gallery-marquee 180s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .animate-gallery-marquee { animation: none; } }
+
+/* Galerias: a principal é manual; a de isopor desliza automaticamente. */
+.gallery-manual-scroll { cursor: grab; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #9ca3af transparent; }
+.gallery-manual-scroll:active { cursor: grabbing; }
+.animate-isopor-marquee { animation: isopor-marquee 55s linear infinite; }
+.animate-isopor-marquee:hover { animation-play-state: paused; }
+@keyframes isopor-marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.5rem)); } }
+@media (prefers-reduced-motion: reduce) { .animate-isopor-marquee { animation: none; } }
