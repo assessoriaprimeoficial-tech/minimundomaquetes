@@ -226,7 +226,7 @@ const galleryImages: string[] = [
   ...__GALLERY_PHOTOS__.filter((src) => !src.startsWith("/galeria-novas/")),
   ...newGalleryPhotos,
 ];
-const isoporImages: string[] = ["/galeria-isopor/image.png"];
+const isoporImages: string[] = [isoporSimples.url, isoporComum.url, isoporGrande.url, isoporMega.url, "/galeria-isopor/image.png"];
 
 const faqs = [
   [
@@ -620,14 +620,18 @@ function Index() {
           </div>
           <div className="mt-8 text-center">
             <h3 className="text-xl font-black sm:text-2xl">Veja exemplos de maquetes feitas com isopor</h3>
-            <p className="mt-2 text-sm font-bold text-blue-700">As imagens passam automaticamente. Você também pode arrastar para os lados.</p>
+            <p className="mt-2 text-sm font-bold text-blue-700">← Arraste para o lado para ver mais imagens →</p>
           </div>
           {isoporImages.length > 0 ? (
-            <div className="mt-4 overflow-hidden">
-              <div className="flex w-max gap-4 animate-isopor-marquee py-3">
-                {[...isoporImages, ...isoporImages].map((src, i) => (
-                  <div key={`${src}-${i}`} className="w-[76vw] max-w-[320px] shrink-0 sm:w-[340px]">
-                    <img src={src} alt={`Exemplo de maquete feita em isopor ${(i % isoporImages.length) + 1}`} loading="lazy" decoding="async" draggable={false} className="h-[230px] w-full rounded-2xl border border-[#e3dac9] bg-[#fffdf8] object-cover shadow-sm sm:h-[270px]" />
+            <div className="relative left-1/2 mt-4 w-screen -translate-x-1/2">
+              <div className="gallery-manual-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 py-3 sm:px-8" aria-label="Galeria de maquetes feitas em isopor. Arraste para o lado para ver mais imagens."
+                onPointerDown={(event) => { galleryDrag.current = { startX: event.clientX, scrollLeft: event.currentTarget.scrollLeft, dragging: true }; event.currentTarget.setPointerCapture(event.pointerId); }}
+                onPointerMove={(event) => { if (galleryDrag.current?.dragging) event.currentTarget.scrollLeft = galleryDrag.current.scrollLeft - (event.clientX - galleryDrag.current.startX); }}
+                onPointerUp={() => { if (galleryDrag.current) galleryDrag.current.dragging = false; }}
+                onPointerCancel={() => { if (galleryDrag.current) galleryDrag.current.dragging = false; }}>
+                {isoporImages.map((src, i) => (
+                  <div key={src} className="w-[78vw] max-w-[340px] shrink-0 snap-start sm:w-[360px]">
+                    <img src={src} alt={`Exemplo de maquete feita em isopor ${i + 1}`} loading={i < 4 ? "eager" : "lazy"} decoding="async" draggable={false} className="h-[250px] w-full rounded-2xl border border-[#e3dac9] bg-[#fffdf8] object-cover shadow-sm sm:h-[290px]" />
                   </div>
                 ))}
               </div>
