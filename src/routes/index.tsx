@@ -181,8 +181,52 @@ const carouselImages = {
 // Lista da galeria gerada no build a partir dos arquivos reais em public/galeria.
 declare const __GALLERY_PHOTOS__: string[];
 declare const __ISOPOR_PHOTOS__: string[];
-const galleryImages: string[] = __GALLERY_PHOTOS__;
-const isoporImages: string[] = __ISOPOR_PHOTOS__;
+const newGalleryPhotos: string[] = [
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.54.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.55 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.55.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.56 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.56 (2).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.56.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.57 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.57 (2).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.57.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.58.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.59 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.59 (2).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.59.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.00.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.01 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.01.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.02 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.02.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.03.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.04.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.05.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06 (2).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06 (3).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.07 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.07.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.08 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.08.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.09 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.09 (2).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.09.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.10.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.11.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.23.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.24 (1).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.24 (2).jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.24.jpeg"),
+  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.25.jpeg")
+];
+const galleryImages: string[] = [
+  ...__GALLERY_PHOTOS__.filter((src) => !src.startsWith("/galeria-novas/")),
+  ...newGalleryPhotos,
+];
+const isoporImages: string[] = ["/galeria-isopor/image.png"];
 
 const faqs = [
   [
@@ -605,7 +649,7 @@ function Index() {
               </p>
             </div>
           </div>
-          <p className="mt-5 text-sm font-bold text-blue-700">← Arraste para o lado para ver mais imagens →</p>
+          <p className="mx-auto mt-5 w-full text-center text-sm font-bold text-blue-700">← Arraste para o lado para ver mais imagens →</p>
           <div className="relative left-1/2 mt-4 w-screen -translate-x-1/2">
             <div className="gallery-manual-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 py-3 sm:px-8" aria-label="Galeria de maquetes. Arraste para o lado para ver mais imagens."
               onPointerDown={(event) => { galleryDrag.current = { startX: event.clientX, scrollLeft: event.currentTarget.scrollLeft, dragging: true }; event.currentTarget.setPointerCapture(event.pointerId); }}
