@@ -6,4 +6,4 @@
 - [x] Verify page, navigation, contact links and SEO.
 - [x] Add supplied logo to page and link sharing.
 - [x] Use logo-derived favicon and supplied floating WhatsApp image.
-- [x] Verify images, contact link, and page load.
+- [x] Verify images, contact link, and page load.- [x] Add ten supplied isopor photos to the isopor carousel and drop the single old photo.
