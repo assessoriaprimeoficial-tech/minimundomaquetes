@@ -9,10 +9,18 @@ import { readdirSync } from "node:fs";
 
 // Gallery list is built from the real files in public/galeria so the page never
 // references photos that do not exist.
-const galleryPhotos = readdirSync("public/galeria")
-  .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+const imageExtensions = /\.(jpe?g|png|webp)$/i;
+const galleryPhotos = ["public/galeria", "public/galeria-novas"]
+  .flatMap((folder) =>
+    readdirSync(folder)
+      .filter((f) => imageExtensions.test(f))
+      .sort()
+      .map((f) => `/${folder.replace("public/", "")}/${f}`),
+  );
+const isoporPhotos = readdirSync("public/galeria-isopor")
+  .filter((f) => imageExtensions.test(f))
   .sort()
-  .map((f) => `/galeria/${f}`);
+  .map((f) => `/galeria-isopor/${f}`);
 
 export default defineConfig({
   tanstackStart: {
@@ -23,6 +31,7 @@ export default defineConfig({
   vite: {
     define: {
       __GALLERY_PHOTOS__: JSON.stringify(galleryPhotos),
+      __ISOPOR_PHOTOS__: JSON.stringify(isoporPhotos),
     },
   },
 });
