@@ -226,7 +226,7 @@ const galleryImages: string[] = [
   ...__GALLERY_PHOTOS__.filter((src) => !src.startsWith("/galeria-novas/")),
   ...newGalleryPhotos,
 ];
-const isoporImages: string[] = [isoporSimples.url, isoporComum.url, isoporGrande.url, isoporMega.url, "/galeria-isopor/image.png"];
+const isoporImages: string[] = ["/galeria-isopor/image.png"];
 
 const faqs = [
   [
