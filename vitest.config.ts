@@ -12,6 +12,12 @@ export default defineConfig({
         .sort()
         .map((file) => `/galeria/${file}`),
     ),
+    __GALLERY_NOVAS__: JSON.stringify(
+      readdirSync("public/galeria-novas")
+        .filter((file) => /\.(jpe?g|png|webp)$/i.test(file))
+        .sort()
+        .map((file) => `/galeria-novas/${file}`),
+    ),
   },
   test: {
     environment: "jsdom",
