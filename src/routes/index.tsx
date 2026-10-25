@@ -41,7 +41,7 @@ import {
 } from "lucide-react";
 
 const WHATSAPP =
-  "https://wa.me/5521994183376?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
+  "https://wa.me/5521985261185?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mini%20Mundo%20Maquetes%20e%20quero%20fazer%20um%20or%C3%A7amento.";
 const plans = [
   {
     name: "Simples",
@@ -172,7 +172,9 @@ const carouselImages = {
 
 // Lista da galeria gerada no build a partir dos arquivos reais em public/galeria.
 declare const __GALLERY_PHOTOS__: string[];
+declare const __ISOPOR_PHOTOS__: string[];
 const galleryImages: string[] = __GALLERY_PHOTOS__;
+const isoporImages: string[] = __ISOPOR_PHOTOS__;
 
 const faqs = [
   [
@@ -287,7 +289,7 @@ export const Route = createFileRoute("/")({
       "@context": "https://schema.org", "@type": "Organization", name: "Mini Mundo Maquetes",
       url: "https://minimundomaquetes.lovable.app/", logo: new URL(logoAsset.url, "https://minimundomaquetes.lovable.app").href,
       description: "Maquetes escolares sob encomenda para feiras, cursos e projetos.",
-      contactPoint: { "@type": "ContactPoint", telephone: "+55-21-99418-3376", contactType: "customer service", availableLanguage: "Portuguese" }
+      contactPoint: { "@type": "ContactPoint", telephone: "+55-21-98526-1185", contactType: "customer service", availableLanguage: "Portuguese" }
     }) }],
   }),
   component: Index,
@@ -316,7 +318,7 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-xl">
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-3 sm:flex sm:justify-between lg:px-8">
           <a href="#sobre" aria-label="Mini Mundo Maquetes — início" className="block min-w-0 shrink-0">
-            <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-24 object-contain sm:w-28" />
+            <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-32 object-contain sm:w-40 lg:w-44" />
           </a>
           <nav aria-label="Menu principal" className="hidden items-center gap-5 font-semibold lg:flex">
             {[['#sobre', 'Sobre'], ['#modelos', 'Modelos'], ['#galeria', 'Galeria'], ['#como-funciona', 'Como funciona'], ['#avaliacoes', 'Avaliações'], ['#duvidas', 'Dúvidas']].map(([href, label]) => <a key={href} href={href} className="hover:text-brand">{label}</a>)}
@@ -473,7 +475,7 @@ function Index() {
                     </div>
                     <a
                       href={
-                        "https://wa.me/5521994183376?text=Quero%20um%20or%C3%A7amento%20para%20uma%20maquete%20" +
+                        "https://wa.me/5521985261185?text=Quero%20um%20or%C3%A7amento%20para%20uma%20maquete%20" +
                         encodeURIComponent(p.name) +
                         "."
                       }
@@ -540,6 +542,49 @@ function Index() {
         </div>
       </section>
 
+
+      <section id="maquetes-isopor" className="overflow-hidden bg-[#f4f0e7] py-10 lg:py-14">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-extrabold uppercase tracking-[0.18em] text-blue-700">Nosso material</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">Maquetes feitas em isopor</h2>
+            <p className="mt-4 text-base leading-8 text-slate-700 sm:text-lg">O isopor (poliestireno expandido — EPS) é um material leve, versátil e fácil de modelar. Ele permite criar volumes, relevos, paredes, terrenos e bases para representar ideias de forma visual em trabalhos escolares, feiras e projetos educativos.</p>
+          </div>
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["Leve e fácil de transportar", "Por ser leve, o isopor ajuda a montar maquetes que podem ser levadas para a escola, cursos e apresentações."],
+              ["Fácil de cortar e dar forma", "Pode ser recortado e montado para criar bases, construções e diferentes formas, conforme o projeto."],
+              ["Acabamento personalizado", "O isopor pode receber revestimentos, pintura e outros elementos decorativos compatíveis com o projeto, para destacar os detalhes."],
+              ["Bom para projetos escolares", "É bastante usado em maquetes didáticas porque permite representar conceitos e estruturas de maneira concreta e visual."],
+              ["Cada projeto é planejado", "O tipo de isopor, a espessura, a estrutura e os acabamentos são definidos conforme o tamanho e o nível de detalhe solicitado."],
+              ["Cuidados e limitações", "O isopor pode amassar ou quebrar sob pressão e alguns solventes podem danificá-lo. Por isso, escolhemos materiais de acabamento adequados a cada trabalho."]
+            ].map(([title, description]) => (
+              <article key={title} className="rounded-2xl border border-[#e3dac9] bg-[#fffdf8] p-5 shadow-sm">
+                <h3 className="font-black text-slate-900">{title}</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-700">{description}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <h3 className="text-xl font-black sm:text-2xl">Veja exemplos de maquetes feitas com isopor</h3>
+            <p className="mt-2 text-sm font-bold text-blue-700">As imagens passam automaticamente. Você também pode arrastar para os lados.</p>
+          </div>
+          {isoporImages.length > 0 ? (
+            <div className="mt-4 overflow-hidden">
+              <div className="flex w-max gap-4 animate-isopor-marquee py-3">
+                {[...isoporImages, ...isoporImages].map((src, i) => (
+                  <div key={`${src}-${i}`} className="w-[76vw] max-w-[320px] shrink-0 sm:w-[340px]">
+                    <img src={src} alt={`Exemplo de maquete feita em isopor ${(i % isoporImages.length) + 1}`} loading="lazy" decoding="async" draggable={false} className="h-[230px] w-full rounded-2xl border border-[#e3dac9] bg-[#fffdf8] object-cover shadow-sm sm:h-[270px]" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="mt-5 rounded-2xl border border-dashed border-[#c9bda8] bg-[#fffdf8] p-6 text-center text-sm leading-7 text-slate-700">A galeria de maquetes em isopor está pronta para receber suas fotos. Adicione imagens à pasta <strong>public/galeria-isopor</strong> no GitHub e elas aparecerão aqui após a publicação.</div>
+          )}
+        </div>
+      </section>
+
       <section id="galeria" className="scroll-mt-24 overflow-hidden bg-surface py-8 lg:py-12">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col items-center gap-5 text-center">
@@ -551,17 +596,12 @@ function Index() {
               </p>
             </div>
           </div>
-          <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 overflow-hidden">
-            <div className="flex w-max animate-gallery-marquee gap-4 py-2">
-              {[...galleryImages, ...galleryImages].map((src, i) => (
-                <div key={`${src}-${i}`} className="w-[78vw] max-w-[340px] shrink-0 sm:w-[360px]">
-                  <img
-                    src={src}
-                    alt={`Foto de maquete ${(i % galleryImages.length) + 1} feita pela Mini Mundo Maquetes`}
-                    loading={i < 4 ? "eager" : "lazy"}
-                    decoding="async"
-                    className="h-[250px] w-full rounded-2xl border border-slate-200 bg-white object-cover shadow-sm sm:h-[290px]"
-                  />
+          <p className="mt-5 text-sm font-bold text-blue-700">← Arraste para o lado para ver mais imagens →</p>
+          <div className="relative left-1/2 mt-4 w-screen -translate-x-1/2">
+            <div className="gallery-manual-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 py-3 sm:px-8" aria-label="Galeria de maquetes. Arraste para o lado para ver mais imagens.">
+              {galleryImages.map((src, i) => (
+                <div key={src} className="w-[78vw] max-w-[340px] shrink-0 snap-start sm:w-[360px]">
+                  <img src={src} alt={`Foto de maquete ${i + 1} feita pela Mini Mundo Maquetes`} loading={i < 4 ? "eager" : "lazy"} decoding="async" draggable={false} className="h-[250px] w-full rounded-2xl border border-slate-200 bg-white object-cover shadow-sm sm:h-[290px]" />
                 </div>
               ))}
             </div>
@@ -604,7 +644,7 @@ function Index() {
                 [
                   "04",
                   "Você retira",
-                  "A retirada é feita no local de fabricação. O transporte fica por conta do cliente.",
+                  "Retirada na Rua Iandara, 135 — Campo Grande. O transporte fica por conta do cliente.",
                 ],
               ].map(([n, t, d]) => (
                 <div
@@ -815,10 +855,11 @@ function Index() {
 
       <footer className="border-t border-slate-200 bg-white py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center text-sm text-muted-foreground lg:px-8">
-          <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-32 object-contain sm:w-36" />
+          <img src={logoAsset.url} alt="Mini Mundo Maquete" width={1475} height={825} className="h-auto w-36 object-contain sm:w-44" />
           <div>
             <strong className="text-slate-900">MINI MUNDO MAQUETES</strong>
             <p className="mt-1">Maquetes escolares, feiras, cursos e projetos.</p>
+            <p className="mt-2 font-semibold text-slate-700">Retirada: Rua Iandara, 135 — Campo Grande</p>
           </div>
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-5">
             <a
@@ -827,20 +868,15 @@ function Index() {
               rel="noreferrer"
               className="font-bold hover:text-blue-600"
             >
-              WhatsApp: +55 21 99418-3376
+              WhatsApp: (21) 98526-1185
             </a>
             <span>© 2026 Mini Mundo Maquetes</span>
           </div>
         </div>
       </footer>
-      <a
-        href={WHATSAPP}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Falar no WhatsApp"
-        className="fixed bottom-5 right-5 z-50 block h-16 w-16 rounded-full transition hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
-      >
-        <img src={whatsappAsset.url} alt="" width={64} height={64} className="h-full w-full object-contain" />
+      <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp: 21 98526-1185" className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#20b858] py-2 pl-2 pr-4 text-sm font-extrabold text-white shadow-xl transition hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground">
+        <img src={whatsappAsset.url} alt="" width={48} height={48} className="h-12 w-12 object-contain" />
+        <span className="whitespace-nowrap">(21) 98526-1185</span>
       </a>
     </main>
   );
