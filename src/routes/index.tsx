@@ -193,51 +193,11 @@ const carouselImages = {
 
 // Lista da galeria gerada no build a partir dos arquivos reais em public/galeria.
 declare const __GALLERY_PHOTOS__: string[];
+declare const __GALLERY_NOVAS__: string[];
 declare const __ISOPOR_PHOTOS__: string[];
-const newGalleryPhotos: string[] = [
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.54.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.55 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.55.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.56 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.56 (2).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.56.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.57 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.57 (2).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.57.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.58.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.59 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.59 (2).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.48.59.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.00.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.01 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.01.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.02 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.02.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.03.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.04.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.05.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06 (2).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06 (3).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.06.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.07 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.07.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.08 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.08.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.09 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.09 (2).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.09.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.10.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.11.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.23.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.24 (1).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.24 (2).jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.24.jpeg"),
-  encodeURI("/galeria-novas/WhatsApp Image 2026-10-25 at 09.49.25.jpeg")
-];
 const galleryImages: string[] = [
-  ...__GALLERY_PHOTOS__.filter((src) => !src.startsWith("/galeria-novas/")),
-  ...newGalleryPhotos,
+  ...__GALLERY_PHOTOS__,
+  ...__GALLERY_NOVAS__,
 ];
 const isoporImages: string[] = [
   isoporGaleria1.url,
@@ -249,6 +209,9 @@ const isoporImages: string[] = [
   isoporGaleria7.url,
   isoporGaleria8.url,
   isoporGaleria9.url,
+  isoporGaleria11.url,
+  isoporGaleria12.url,
+  isoporGaleria13.url,
   isoporGaleria10.url,
 ];
 
