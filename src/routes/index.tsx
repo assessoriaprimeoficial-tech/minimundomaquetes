@@ -173,8 +173,10 @@ const carouselImages = {
 // Lista da galeria gerada no build a partir dos arquivos reais em public/galeria.
 declare const __GALLERY_PHOTOS__: string[];
 declare const __ISOPOR_PHOTOS__: string[];
-const galleryImages: string[] = __GALLERY_PHOTOS__;
-const isoporImages: string[] = __ISOPOR_PHOTOS__;
+const isoporImages: string[] =
+  typeof __ISOPOR_PHOTOS__ !== "undefined" ? __ISOPOR_PHOTOS__ : [];
+const galleryImages: string[] =
+  typeof __GALLERY_PHOTOS__ !== "undefined" ? __GALLERY_PHOTOS__ : [];
 
 const faqs = [
   [
