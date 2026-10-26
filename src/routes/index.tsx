@@ -586,11 +586,11 @@ function Index() {
                 e os materiais necessários, sempre combinado com o cliente antes da produção.
               </p>
             </div>
-            <div className="rounded-2xl border border-rose-200 bg-gradient-to-br from-rose-50 to-pink-100 p-6 text-center shadow-sm">
-              <div className="mb-3 inline-flex rounded-full bg-rose-200 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-rose-900">
+            <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-sky-50 to-blue-100 p-6 text-center shadow-sm">
+              <div className="mb-3 inline-flex rounded-full bg-blue-200 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-blue-900">
                 Atenção ao orçamento
               </div>
-              <h3 className="text-lg font-black text-rose-950">Cartazes e biombos são cobrados à parte</h3>
+              <h3 className="text-lg font-black text-blue-950">Cartazes e biombos são cobrados à parte</h3>
               <p className="mt-2 text-sm leading-7 text-slate-700">
                 O valor da maquete inclui apenas as plaquinhas. Cartazes e biombos não estão inclusos;
                 se forem necessários, fazemos um orçamento separado considerando os custos de impressão
