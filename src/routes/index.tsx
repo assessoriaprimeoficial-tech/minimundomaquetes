@@ -579,6 +579,9 @@ function Index() {
             novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e
             combinado diretamente com o cliente.
           </div>
+          <div className="mt-4 rounded-2xl border border-red-100 bg-red-50 p-5 text-center text-base leading-7 text-red-950">
+            <strong>Cartazes e biombos não estão inclusos no valor da maquete.</strong> O valor inclui apenas plaquinhas. Caso precise de cartazes, será feito um orçamento à parte, de acordo com os custos de impressão e dos serviços necessários.
+          </div>
         </div>
       </section>
 
