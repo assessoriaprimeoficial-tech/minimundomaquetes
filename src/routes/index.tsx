@@ -586,7 +586,7 @@ function Index() {
       </section>
 
 
-      <section id="maquetes-isopor" className="overflow-hidden bg-[#f4f0e7] py-10 lg:py-14">
+      <section id="maquetes-isopor" className="overflow-hidden bg-[#fff0df] py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-extrabold uppercase tracking-[0.18em] text-blue-700">Nosso material</p>
