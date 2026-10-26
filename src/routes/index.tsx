@@ -574,13 +574,29 @@ function Index() {
               </article>
             ))}
           </div>
-          <div className="mt-5 rounded-2xl border border-orange-100 bg-orange-50 p-5 text-center text-base leading-7 text-orange-950">
-            <strong>Materiais novos ou réplicas:</strong> quando o projeto exige somente materiais
-            novos, sem reciclados, ou uma réplica, o valor é definido conforme as exigências e
-            combinado diretamente com o cliente.
-          </div>
-          <div className="mt-4 rounded-2xl border border-red-100 bg-red-50 p-5 text-center text-base leading-7 text-red-950">
-            <strong>Cartazes e biombos não estão inclusos no valor da maquete.</strong> O valor inclui apenas plaquinhas. Caso precise de cartazes, será feito um orçamento à parte, de acordo com os custos de impressão e dos serviços necessários.
+          <div className="mx-auto mt-6 grid max-w-5xl gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-orange-200 bg-white p-6 text-left shadow-sm">
+              <div className="mb-3 inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-orange-800">
+                Orçamento personalizado
+              </div>
+              <h3 className="text-lg font-black text-slate-900">Materiais novos ou maquetes réplica</h3>
+              <p className="mt-2 text-sm leading-7 text-slate-700">
+                Projetos feitos exclusivamente com materiais novos, sem reciclados, e maquetes de réplica
+                são avaliados individualmente. O preço é definido conforme os detalhes, o nível de exigência
+                e os materiais necessários, sempre combinado com o cliente antes da produção.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-red-200 bg-white p-6 text-left shadow-sm">
+              <div className="mb-3 inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-red-800">
+                Atenção ao orçamento
+              </div>
+              <h3 className="text-lg font-black text-slate-900">Cartazes e biombos são cobrados à parte</h3>
+              <p className="mt-2 text-sm leading-7 text-slate-700">
+                O valor da maquete inclui apenas as plaquinhas. Cartazes e biombos não estão inclusos;
+                se forem necessários, fazemos um orçamento separado considerando os custos de impressão
+                e os serviços envolvidos.
+              </p>
+            </div>
           </div>
         </div>
       </section>
