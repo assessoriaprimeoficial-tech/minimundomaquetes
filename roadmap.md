@@ -8,3 +8,5 @@
 - [x] Use logo-derived favicon and supplied floating WhatsApp image.
 - [x] Verify images, contact link, and page load.
 - [x] Add ten supplied isopor photos to the isopor carousel and drop the single old photo.
+- [x] Add two supplied maquette photos to the Grande carousel (18 total, most common size first).
+- [ ] Republish the site so the Grande, Comum, isopor and gallery photo fixes reach the live deploy.
