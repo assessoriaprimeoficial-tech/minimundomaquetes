@@ -23,6 +23,8 @@ import grande13 from "@/assets/grande-13.jpeg.asset.json";
 import grande14 from "@/assets/grande-14.jpeg.asset.json";
 import grande15 from "@/assets/grande-15.jpeg.asset.json";
 import grande16 from "@/assets/grande-16.jpeg.asset.json";
+import grande17 from "@/assets/grande-17.jpeg.asset.json";
+import grande18 from "@/assets/grande-18.jpeg.asset.json";
 import isoporSimples from "@/assets/isopor-1.jpg.asset.json";
 import isoporComum from "@/assets/isopor-2.jpg.asset.json";
 import isoporGrande from "@/assets/isopor-3.jpg.asset.json";
@@ -177,6 +179,8 @@ const carouselImages = {
     grande14.url,
     grande15.url,
     grande16.url,
+    grande17.url,
+    grande18.url,
   ],
 
   mega: [
