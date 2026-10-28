@@ -175,11 +175,11 @@ const carouselImages = {
     grande10.url,
     grande11.url,
     grande12.url,
+    grande17.url,
     grande13.url,
     grande14.url,
     grande15.url,
     grande16.url,
-    grande17.url,
     grande18.url,
   ],
 
